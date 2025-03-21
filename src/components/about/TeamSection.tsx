@@ -31,7 +31,7 @@ const TeamSection = () => {
     {
       name: "Janaki Ram",
       role: "Co-Founder & CTO",
-      image: "https://static.wikia.nocookie.net/jujutsu-kaisen/images/4/4a/Kento_Nanami_%28Chapter_100%29.png/revision/latest/scale-to-width-down/250?cb=20210318040335",
+      image: "https://dthezntil550i.cloudfront.net/46/latest/462102280835308190019254118/1280_960/09d3488f-2177-48d8-8347-09ce381d06a5.jpg",
       bio: "Tech innovator who built the platform's architecture from the ground up.",
       socials: {
         twitter: "https://twitter.com/janakiram",
