@@ -1,17 +1,7 @@
-
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { 
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
-} from "@/components/ui/navigation-menu";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
 const AboutPage = () => {
@@ -23,7 +13,7 @@ const AboutPage = () => {
     {
       name: "P Aneesh",
       role: "Co-Founder & CEO",
-      image: "/geto.jpg",
+      image: "https://i.pinimg.com/736x/82/2e/1c/822e1cae2d10fdda55f8d5f9d69f961a.jpg",
       bio: "Visionary leader who conceptualized McBongu's to revolutionize food delivery.",
       socials: {
         twitter: "https://twitter.com/paneesh",
@@ -34,7 +24,7 @@ const AboutPage = () => {
     {
       name: "Janaki Ram",
       role: "Co-Founder & CTO",
-      image: "/nanami.jpg",
+      image: "https://static.wikia.nocookie.net/jujutsu-kaisen/images/4/4a/Kento_Nanami_%28Chapter_100%29.png/revision/latest/scale-to-width-down/250?cb=20210318040335",
       bio: "Tech innovator who built the platform's architecture from the ground up.",
       socials: {
         twitter: "https://twitter.com/janakiram",
@@ -45,7 +35,7 @@ const AboutPage = () => {
     {
       name: "Rithwik M",
       role: "Co-Founder & COO",
-      image: "/yuji.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhtqzmMEsVVRu3OzOP1hB6sSsmYFWboblXA&s",
       bio: "Operations expert who ensures seamless delivery experiences every time.",
       socials: {
         twitter: "https://twitter.com/rithwikm",
@@ -56,7 +46,7 @@ const AboutPage = () => {
     {
       name: "Rishik N",
       role: "Co-Founder & CMO",
-      image: "/shigemo.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYwfkAYANokWTBbrKtFKVlsho3dgK-CWAq_w&s",
       bio: "Marketing genius who built the McBongu's brand and customer acquisition strategy.",
       socials: {
         twitter: "https://twitter.com/rishikn",
