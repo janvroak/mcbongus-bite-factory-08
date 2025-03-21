@@ -13,6 +13,8 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
+import Offers from "./pages/Offers";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/order-confirmation/:id" element={<OrderConfirmation />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/offers" element={<Offers />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
