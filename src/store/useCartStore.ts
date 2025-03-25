@@ -14,9 +14,11 @@ export interface CartItem {
 
 interface CartState {
   cartItems: CartItem[];
+  discount: number;
   addItem: (item: CartItem) => void;
   updateItemQuantity: (id: string, quantity: number) => void;
   removeItem: (id: string) => void;
+  setDiscount: (amount: number) => void;
   clearCart: () => void;
 }
 
@@ -24,6 +26,7 @@ export const useCartStore = create<CartState>()(
   persist(
     (set) => ({
       cartItems: [],
+      discount: 0,
       
       addItem: (newItem) => set((state) => {
         // Check if item already exists in cart
@@ -58,7 +61,9 @@ export const useCartStore = create<CartState>()(
         cartItems: state.cartItems.filter(item => item.id !== id)
       })),
       
-      clearCart: () => set({ cartItems: [] })
+      setDiscount: (amount) => set({ discount: amount }),
+      
+      clearCart: () => set({ cartItems: [], discount: 0 })
     }),
     {
       name: 'cart-storage',

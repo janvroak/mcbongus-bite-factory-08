@@ -17,6 +17,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { useCartStore } from "@/store/useCartStore";
 
 const paymentOptions = [
   {
@@ -51,9 +52,11 @@ const addressTypes = [
 
 const Checkout = () => {
   const navigate = useNavigate();
+  const { cartItems, clearCart } = useCartStore();
   const [isProcessing, setIsProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [addressType, setAddressType] = useState("home");
+  const [promoApplied, setPromoApplied] = useState(false);
   
   // Form fields
   const [name, setName] = useState("");
@@ -71,7 +74,38 @@ const Checkout = () => {
   
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    
+    // Check if cart is empty, redirect to cart page if it is
+    if (cartItems.length === 0) {
+      navigate("/cart");
+      toast.error("Your cart is empty");
+    }
+    
+    // Check if a promo code was applied in the cart page
+    const urlParams = new URLSearchParams(window.location.search);
+    setPromoApplied(urlParams.get("promo") === "applied");
+  }, [cartItems, navigate]);
+  
+  const calculateSubtotal = () => {
+    return cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  };
+  
+  const calculateDiscount = () => {
+    return promoApplied ? calculateSubtotal() * 0.2 : 0; // 20% discount if promo was applied
+  };
+  
+  const calculateTax = () => {
+    return calculateSubtotal() * 0.05; // 5% GST
+  };
+
+  const calculateTotal = () => {
+    const subtotal = calculateSubtotal();
+    const discount = calculateDiscount();
+    const tax = calculateTax();
+    const deliveryFee = 49;
+    
+    return subtotal + tax + deliveryFee - discount;
+  };
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,10 +123,14 @@ const Checkout = () => {
     
     setIsProcessing(true);
     
+    // Generate a random order ID
+    const orderId = "ORD" + Math.floor(100000 + Math.random() * 900000);
+    
     // Simulate order processing
     setTimeout(() => {
       setIsProcessing(false);
-      navigate("/order-confirmation/ORD12345");
+      clearCart(); // Clear the cart after successful order
+      navigate(`/order-confirmation/${orderId}`);
       
       toast.success("Order placed successfully!", {
         description: "Your order has been received and is being processed."
@@ -354,30 +392,32 @@ const Checkout = () => {
                   <div className="space-y-3 mb-4">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal</span>
-                      <span>₹2,994</span>
+                      <span>₹{calculateSubtotal().toFixed(2)}</span>
                     </div>
                     
                     <div className="flex justify-between text-gray-600">
                       <span>GST (5%)</span>
-                      <span>₹149.70</span>
+                      <span>₹{calculateTax().toFixed(2)}</span>
                     </div>
                     
                     <div className="flex justify-between text-gray-600">
                       <span>Delivery Fee</span>
-                      <span>₹49</span>
+                      <span>₹49.00</span>
                     </div>
                     
-                    <div className="flex justify-between text-green-600">
-                      <span>Discount</span>
-                      <span>-₹599</span>
-                    </div>
+                    {promoApplied && (
+                      <div className="flex justify-between text-green-600">
+                        <span>Discount</span>
+                        <span>-₹{calculateDiscount().toFixed(2)}</span>
+                      </div>
+                    )}
                   </div>
                   
                   <Separator className="my-4" />
                   
                   <div className="flex justify-between font-semibold text-lg text-gray-900 mb-6">
                     <span>Total</span>
-                    <span>₹2,593.70</span>
+                    <span>₹{calculateTotal().toFixed(2)}</span>
                   </div>
                   
                   <Button 

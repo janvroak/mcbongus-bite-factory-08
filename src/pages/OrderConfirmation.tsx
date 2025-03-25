@@ -37,9 +37,34 @@ const OrderConfirmation = () => {
   const { id } = useParams<{ id: string }>();
   const [currentStep, setCurrentStep] = useState(0);
   const [estimatedTime, setEstimatedTime] = useState("35-45");
+  const [orderItems, setOrderItems] = useState<Array<{name: string; quantity: number; price: number; restaurantName: string}>>([]);
+  const [orderTotal, setOrderTotal] = useState(0);
   
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Retrieve the last order details from localStorage (ideally this would be from an API)
+    const cartData = localStorage.getItem('cart-storage');
+    if (cartData) {
+      try {
+        const parsedData = JSON.parse(cartData);
+        if (parsedData.state && parsedData.state.cartItems) {
+          setOrderItems(parsedData.state.cartItems);
+          
+          // Calculate totals
+          const subtotal = parsedData.state.cartItems.reduce(
+            (sum: number, item: any) => sum + (item.price * item.quantity), 0
+          );
+          const tax = subtotal * 0.05;
+          const delivery = 49;
+          const discount = subtotal * 0.2; // Assuming 20% discount
+          
+          setOrderTotal(subtotal + tax + delivery - discount);
+        }
+      } catch (error) {
+        console.error('Failed to parse cart data', error);
+      }
+    }
     
     // Simulate order progression
     const timer1 = setTimeout(() => setCurrentStep(1), 3000);
@@ -53,6 +78,19 @@ const OrderConfirmation = () => {
       clearTimeout(timer2);
     };
   }, []);
+  
+  // Calculate order summary values
+  const calculateSubtotal = () => {
+    return orderItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  };
+  
+  const calculateTax = () => {
+    return calculateSubtotal() * 0.05;
+  };
+  
+  const calculateDiscount = () => {
+    return calculateSubtotal() * 0.2; // 20% discount
+  };
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -149,29 +187,19 @@ const OrderConfirmation = () => {
               <div className="mb-6">
                 <h3 className="font-medium text-gray-900 mb-3">Items</h3>
                 <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <div>
-                      <span className="text-gray-700">2 x Classic Burger</span>
-                      <span className="block text-sm text-gray-500">Burger Kingdom</span>
-                    </div>
-                    <span className="text-gray-700">₹1,798</span>
-                  </div>
-                  
-                  <div className="flex justify-between">
-                    <div>
-                      <span className="text-gray-700">1 x French Fries</span>
-                      <span className="block text-sm text-gray-500">Burger Kingdom</span>
-                    </div>
-                    <span className="text-gray-700">₹399</span>
-                  </div>
-                  
-                  <div className="flex justify-between">
-                    <div>
-                      <span className="text-gray-700">2 x Soft Drink</span>
-                      <span className="block text-sm text-gray-500">Burger Kingdom</span>
-                    </div>
-                    <span className="text-gray-700">₹398</span>
-                  </div>
+                  {orderItems.length > 0 ? (
+                    orderItems.map((item, index) => (
+                      <div key={index} className="flex justify-between">
+                        <div>
+                          <span className="text-gray-700">{item.quantity} x {item.name}</span>
+                          <span className="block text-sm text-gray-500">{item.restaurantName}</span>
+                        </div>
+                        <span className="text-gray-700">₹{(item.price * item.quantity).toFixed(2)}</span>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="text-gray-500">No items found</div>
+                  )}
                 </div>
               </div>
               
@@ -180,23 +208,23 @@ const OrderConfirmation = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between text-gray-600">
                     <span>Subtotal</span>
-                    <span>₹2,595</span>
+                    <span>₹{calculateSubtotal().toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
                     <span>GST</span>
-                    <span>₹129.75</span>
+                    <span>₹{calculateTax().toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
                     <span>Delivery Fee</span>
-                    <span>₹49</span>
+                    <span>₹49.00</span>
                   </div>
                   <div className="flex justify-between text-green-600">
                     <span>Discount</span>
-                    <span>-₹599</span>
+                    <span>-₹{calculateDiscount().toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between font-semibold text-gray-900 pt-2 border-t border-gray-100">
                     <span>Total</span>
-                    <span>₹2,174.75</span>
+                    <span>₹{orderTotal.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
