@@ -9,6 +9,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useCartStore, CartItem } from "@/store/useCartStore";
+import { toast } from "sonner";
 
 interface MenuItemProps {
   item: {
@@ -17,6 +19,7 @@ interface MenuItemProps {
     description: string;
     price: string;
     image: string;
+    restaurantName?: string;
     tags?: string[];
     nutritionInfo?: {
       calories: string;
@@ -26,11 +29,38 @@ interface MenuItemProps {
       allergens?: string[];
     };
   };
-  onAddToCart: (itemId: string) => void;
+  restaurantName: string;
+  onAddToCart?: (itemId: string) => void;
 }
 
-const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
+const MenuItem = ({ item, restaurantName, onAddToCart }: MenuItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { addItem } = useCartStore();
+  
+  const handleAddToCart = () => {
+    // Parse price string (e.g., "₹249" to 249)
+    const priceValue = parseFloat(item.price.replace(/[^\d.]/g, ''));
+    
+    // Add item to cart store
+    addItem({
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: priceValue,
+      quantity: 1,
+      image: item.image,
+      restaurantName: restaurantName,
+    });
+    
+    // Call the onAddToCart prop if provided (for notifications, etc)
+    if (onAddToCart) {
+      onAddToCart(item.id);
+    }
+    
+    toast.success("Item added to cart", {
+      description: "You can view your cart by clicking the cart icon."
+    });
+  };
   
   return (
     <div 
@@ -128,7 +158,7 @@ const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
       <div className="flex items-center justify-between mt-4 sm:mt-0">
         <p className="font-medium text-gray-900 sm:mr-4">{item.price}</p>
         <Button 
-          onClick={() => onAddToCart(item.id)}
+          onClick={handleAddToCart}
           variant="ghost"
           className="text-mcbongu-500 hover:text-mcbongu-600 hover:bg-mcbongu-50"
         >

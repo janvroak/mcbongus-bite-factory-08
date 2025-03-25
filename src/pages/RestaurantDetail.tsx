@@ -10,6 +10,7 @@ import MenuItem from "@/components/MenuItem";
 import { toast } from "sonner";
 import { allRestaurants } from "@/data/restaurants";
 import { createMenuCategories } from "@/data/indianDishes";
+import { useCartStore } from "@/store/useCartStore";
 
 interface Restaurant {
   id: string;
@@ -32,7 +33,7 @@ const RestaurantDetail = () => {
   const navigate = useNavigate();
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
-  const [cartCount, setCartCount] = useState(0);
+  const { cartItems } = useCartStore();
   const [activeTab, setActiveTab] = useState("menu");
   
   useEffect(() => {
@@ -66,11 +67,8 @@ const RestaurantDetail = () => {
   };
   
   const handleAddToCart = (itemId: string) => {
-    setCartCount(prev => prev + 1);
-    
-    toast.success("Item added to cart", {
-      description: "You can view your cart by clicking the cart icon."
-    });
+    // The actual cart handling is now done in the MenuItem component
+    // This function is now just for notifications or other UI feedback
   };
   
   if (!restaurant) {
@@ -176,7 +174,8 @@ const RestaurantDetail = () => {
                         {category.items.map((item: any) => (
                           <MenuItem 
                             key={item.id} 
-                            item={item} 
+                            item={item}
+                            restaurantName={restaurant.name}
                             onAddToCart={handleAddToCart} 
                           />
                         ))}
@@ -218,14 +217,14 @@ const RestaurantDetail = () => {
         </div>
         
         {/* Cart Button */}
-        {cartCount > 0 && (
+        {cartItems.length > 0 && (
           <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4">
             <Button 
               onClick={() => navigate("/cart")}
               className="relative bg-mcbongu-500 hover:bg-mcbongu-600 text-white py-3 px-6 rounded-full shadow-lg animate-slide-up transition-all"
             >
               <ShoppingCart className="h-5 w-5 mr-2" />
-              View Cart ({cartCount})
+              View Cart ({cartItems.length})
             </Button>
           </div>
         )}

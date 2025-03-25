@@ -6,41 +6,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-
-// Dummy cart items
-const dummyCartItems = [
-  {
-    id: "1",
-    name: "Classic Burger",
-    description: "100% Angus beef patty with lettuce, tomato, onion, and our special sauce",
-    price: 8.99,
-    quantity: 2,
-    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-    restaurantName: "Burger Kingdom"
-  },
-  {
-    id: "2",
-    name: "French Fries",
-    description: "Crispy golden fries seasoned with sea salt",
-    price: 3.99,
-    quantity: 1,
-    image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-    restaurantName: "Burger Kingdom"
-  },
-  {
-    id: "3",
-    name: "Soft Drink",
-    description: "Choice of Coke, Diet Coke, Sprite, or Fanta",
-    price: 1.99,
-    quantity: 2,
-    image: "https://images.unsplash.com/photo-1596803244618-8dbee441d70b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-    restaurantName: "Burger Kingdom"
-  }
-];
+import { useCartStore } from "@/store/useCartStore";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const [cartItems, setCartItems] = useState(dummyCartItems);
+  const { cartItems, updateItemQuantity, removeItem } = useCartStore();
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [isApplyingPromo, setIsApplyingPromo] = useState(false);
@@ -48,20 +18,6 @@ const Cart = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
-  const updateQuantity = (id: string, newQuantity: number) => {
-    if (newQuantity < 1) return;
-    
-    setCartItems(items =>
-      items.map(item =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
-  };
-  
-  const removeItem = (id: string) => {
-    setCartItems(items => items.filter(item => item.id !== id));
-  };
   
   const applyPromoCode = () => {
     if (!promoCode) return;
@@ -86,8 +42,8 @@ const Cart = () => {
   
   const calculateTotal = () => {
     const subtotal = calculateSubtotal();
-    const tax = subtotal * 0.08;
-    const deliveryFee = 2.99;
+    const tax = subtotal * 0.05; // GST in India is 5% for restaurants
+    const deliveryFee = 49; // ₹49 delivery fee
     return subtotal + tax + deliveryFee - discount;
   };
   
@@ -119,6 +75,15 @@ const Cart = () => {
     );
   }
   
+  // Group items by restaurant
+  const restaurantGroups = cartItems.reduce((groups, item) => {
+    if (!groups[item.restaurantName]) {
+      groups[item.restaurantName] = [];
+    }
+    groups[item.restaurantName].push(item);
+    return groups;
+  }, {} as Record<string, typeof cartItems>);
+  
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -139,65 +104,71 @@ const Cart = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Cart Items */}
             <div className="md:col-span-2">
-              <div className="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
-                <div className="p-4 border-b border-gray-100">
-                  <h2 className="font-semibold text-gray-900">
-                    Items from {cartItems[0].restaurantName}
-                  </h2>
-                </div>
-                
-                <div className="divide-y divide-gray-100">
-                  {cartItems.map((item) => (
-                    <div key={item.id} className="p-4">
-                      <div className="flex">
-                        <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                          <img 
-                            src={item.image} 
-                            alt={item.name} 
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        
-                        <div className="ml-4 flex-1">
-                          <div className="flex justify-between">
-                            <h3 className="font-medium text-gray-900">{item.name}</h3>
-                            <p className="font-medium text-gray-900">
-                              ${(item.price * item.quantity).toFixed(2)}
-                            </p>
+              {Object.entries(restaurantGroups).map(([restaurantName, items]) => (
+                <div key={restaurantName} className="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
+                  <div className="p-4 border-b border-gray-100">
+                    <h2 className="font-semibold text-gray-900">
+                      Items from {restaurantName}
+                    </h2>
+                  </div>
+                  
+                  <div className="divide-y divide-gray-100">
+                    {items.map((item) => (
+                      <div key={item.id} className="p-4">
+                        <div className="flex">
+                          <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                            <img 
+                              src={item.image} 
+                              alt={item.name} 
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.src = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000";
+                              }}
+                            />
                           </div>
                           
-                          <p className="text-gray-600 text-sm">{item.description}</p>
-                          
-                          <div className="flex items-center justify-between mt-2">
-                            <div className="flex items-center border border-gray-300 rounded-full">
-                              <button 
-                                onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-mcbongu-500"
-                              >
-                                <Minus className="h-4 w-4" />
-                              </button>
-                              <span className="mx-2 text-gray-700">{item.quantity}</span>
-                              <button 
-                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-mcbongu-500"
-                              >
-                                <Plus className="h-4 w-4" />
-                              </button>
+                          <div className="ml-4 flex-1">
+                            <div className="flex justify-between">
+                              <h3 className="font-medium text-gray-900">{item.name}</h3>
+                              <p className="font-medium text-gray-900">
+                                ₹{(item.price * item.quantity).toFixed(2)}
+                              </p>
                             </div>
                             
-                            <button 
-                              onClick={() => removeItem(item.id)}
-                              className="text-gray-400 hover:text-mcbongu-500"
-                            >
-                              <X className="h-5 w-5" />
-                            </button>
+                            <p className="text-gray-600 text-sm">{item.description}</p>
+                            
+                            <div className="flex items-center justify-between mt-2">
+                              <div className="flex items-center border border-gray-300 rounded-full">
+                                <button 
+                                  onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+                                  className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-mcbongu-500"
+                                >
+                                  <Minus className="h-4 w-4" />
+                                </button>
+                                <span className="mx-2 text-gray-700">{item.quantity}</span>
+                                <button 
+                                  onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                                  className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-mcbongu-500"
+                                >
+                                  <Plus className="h-4 w-4" />
+                                </button>
+                              </div>
+                              
+                              <button 
+                                onClick={() => removeItem(item.id)}
+                                className="text-gray-400 hover:text-mcbongu-500"
+                              >
+                                <X className="h-5 w-5" />
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ))}
               
               {/* Promo Code */}
               <div className="bg-white rounded-xl shadow-sm p-4">
@@ -247,23 +218,23 @@ const Cart = () => {
                 <div className="space-y-3 mb-4">
                   <div className="flex justify-between text-gray-600">
                     <span>Subtotal</span>
-                    <span>${calculateSubtotal().toFixed(2)}</span>
+                    <span>₹{calculateSubtotal().toFixed(2)}</span>
                   </div>
                   
                   <div className="flex justify-between text-gray-600">
-                    <span>Tax (8%)</span>
-                    <span>${(calculateSubtotal() * 0.08).toFixed(2)}</span>
+                    <span>GST (5%)</span>
+                    <span>₹{(calculateSubtotal() * 0.05).toFixed(2)}</span>
                   </div>
                   
                   <div className="flex justify-between text-gray-600">
                     <span>Delivery Fee</span>
-                    <span>$2.99</span>
+                    <span>₹49.00</span>
                   </div>
                   
                   {discount > 0 && (
                     <div className="flex justify-between text-green-600">
                       <span>Discount</span>
-                      <span>-${discount.toFixed(2)}</span>
+                      <span>-₹{discount.toFixed(2)}</span>
                     </div>
                   )}
                 </div>
@@ -272,7 +243,7 @@ const Cart = () => {
                 
                 <div className="flex justify-between font-semibold text-lg text-gray-900 mb-6">
                   <span>Total</span>
-                  <span>${calculateTotal().toFixed(2)}</span>
+                  <span>₹{calculateTotal().toFixed(2)}</span>
                 </div>
                 
                 <Button 
