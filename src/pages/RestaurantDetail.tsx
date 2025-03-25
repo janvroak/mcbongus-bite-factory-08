@@ -8,147 +8,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MenuItem from "@/components/MenuItem";
 import { toast } from "sonner";
-
-// Dummy restaurant data
-const restaurants = [
-  {
-    id: "1",
-    name: "Burger Kingdom",
-    image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    coverImage: "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-    cuisine: "American, Burgers",
-    rating: 4.8,
-    reviewCount: 342,
-    deliveryTime: "20-30 min",
-    minOrder: "$10",
-    distance: "1.2 miles",
-    address: "123 Burger Street, New York, NY 10001",
-    description: "Serving the juiciest burgers in town since 2010. Our burgers are made with 100% Angus beef and served with fresh ingredients.",
-    menuCategories: [
-      {
-        id: "burgers",
-        name: "Burgers",
-        items: [
-          {
-            id: "classic-burger",
-            name: "Classic Burger",
-            description: "100% Angus beef patty with lettuce, tomato, onion, and our special sauce",
-            price: "$8.99",
-            image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-            tags: ["Bestseller", "Spicy"],
-            nutritionInfo: {
-              calories: "650 kcal",
-              protein: "32g",
-              carbs: "45g",
-              fat: "28g",
-              allergens: ["Gluten", "Soy", "Dairy"]
-            }
-          },
-          {
-            id: "cheese-burger",
-            name: "Cheeseburger",
-            description: "Classic burger with American cheese",
-            price: "$9.99",
-            image: "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-            nutritionInfo: {
-              calories: "720 kcal",
-              protein: "36g",
-              carbs: "48g",
-              fat: "34g",
-              allergens: ["Gluten", "Soy", "Dairy"]
-            }
-          },
-          {
-            id: "bacon-burger",
-            name: "Bacon Burger",
-            description: "Classic burger with crispy bacon and cheese",
-            price: "$11.99",
-            image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-            tags: ["Popular"],
-            nutritionInfo: {
-              calories: "820 kcal",
-              protein: "42g",
-              carbs: "48g",
-              fat: "42g",
-              allergens: ["Gluten", "Soy", "Dairy"]
-            }
-          }
-        ]
-      },
-      {
-        id: "sides",
-        name: "Sides",
-        items: [
-          {
-            id: "french-fries",
-            name: "French Fries",
-            description: "Crispy golden fries seasoned with sea salt",
-            price: "$3.99",
-            image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-            tags: ["Vegan"],
-            nutritionInfo: {
-              calories: "320 kcal",
-              protein: "4g",
-              carbs: "42g",
-              fat: "16g",
-              allergens: []
-            }
-          },
-          {
-            id: "onion-rings",
-            name: "Onion Rings",
-            description: "Battered and fried onion rings",
-            price: "$4.99",
-            image: "https://images.unsplash.com/photo-1639024471283-03518883512d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-            nutritionInfo: {
-              calories: "400 kcal",
-              protein: "6g",
-              carbs: "48g",
-              fat: "22g",
-              allergens: ["Gluten"]
-            }
-          }
-        ]
-      },
-      {
-        id: "drinks",
-        name: "Drinks",
-        items: [
-          {
-            id: "soda",
-            name: "Soft Drink",
-            description: "Choice of Coke, Diet Coke, Sprite, or Fanta",
-            price: "$1.99",
-            image: "https://images.unsplash.com/photo-1596803244618-8dbee441d70b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-            nutritionInfo: {
-              calories: "150 kcal",
-              protein: "0g",
-              carbs: "39g",
-              fat: "0g",
-              allergens: []
-            }
-          },
-          {
-            id: "milkshake",
-            name: "Milkshake",
-            description: "Creamy milkshake made with premium ice cream",
-            price: "$4.99",
-            image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-            tags: ["Dessert"],
-            nutritionInfo: {
-              calories: "460 kcal",
-              protein: "9g",
-              carbs: "65g",
-              fat: "18g",
-              allergens: ["Dairy"]
-            }
-          }
-        ]
-      }
-    ]
-  },
-  // Add other restaurants from previous data here...
-];
+import { allRestaurants } from "@/data/restaurants";
+import { createMenuCategories } from "@/data/indianDishes";
 
 interface Restaurant {
   id: string;
@@ -163,25 +24,7 @@ interface Restaurant {
   distance: string;
   address: string;
   description: string;
-  menuCategories: {
-    id: string;
-    name: string;
-    items: {
-      id: string;
-      name: string;
-      description: string;
-      price: string;
-      image: string;
-      tags?: string[];
-      nutritionInfo?: {
-        calories: string;
-        protein: string;
-        carbs: string;
-        fat: string;
-        allergens?: string[];
-      };
-    }[];
-  }[];
+  menuCategories?: any[];
 }
 
 const RestaurantDetail = () => {
@@ -196,13 +39,19 @@ const RestaurantDetail = () => {
     window.scrollTo(0, 0);
     
     // Find restaurant by ID
-    const foundRestaurant = restaurants.find(r => r.id === id);
+    const foundRestaurant = allRestaurants.find(r => r.id === id);
     if (foundRestaurant) {
-      setRestaurant(foundRestaurant);
+      // Generate menu categories with Indian dishes if they don't exist
+      const restaurantWithMenu = {
+        ...foundRestaurant,
+        menuCategories: foundRestaurant.menuCategories || createMenuCategories(foundRestaurant.id)
+      };
+      
+      setRestaurant(restaurantWithMenu);
       
       // Initialize all categories as expanded
       const initialExpanded: Record<string, boolean> = {};
-      foundRestaurant.menuCategories.forEach(category => {
+      restaurantWithMenu.menuCategories.forEach(category => {
         initialExpanded[category.id] = true;
       });
       setExpandedCategories(initialExpanded);
@@ -247,6 +96,10 @@ const RestaurantDetail = () => {
             src={restaurant.coverImage} 
             alt={restaurant.name} 
             className="w-full h-full object-cover"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = "https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80";
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
           
@@ -304,7 +157,7 @@ const RestaurantDetail = () => {
             
             <TabsContent value="menu" className="mt-6">
               <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-                {restaurant.menuCategories.map((category) => (
+                {restaurant.menuCategories?.map((category) => (
                   <div key={category.id} className="border-b border-gray-100 last:border-b-0">
                     <button
                       className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
@@ -320,7 +173,7 @@ const RestaurantDetail = () => {
                     
                     {expandedCategories[category.id] && (
                       <div className="animate-accordion-down">
-                        {category.items.map((item) => (
+                        {category.items.map((item: any) => (
                           <MenuItem 
                             key={item.id} 
                             item={item} 
@@ -355,8 +208,8 @@ const RestaurantDetail = () => {
                   
                   <div>
                     <h3 className="font-medium text-gray-700 mb-1">Contact</h3>
-                    <p className="text-gray-600">Phone: (123) 456-7890</p>
-                    <p className="text-gray-600">Email: info@burgerkingdom.com</p>
+                    <p className="text-gray-600">Phone: +91 94123 45678</p>
+                    <p className="text-gray-600">Email: info@{restaurant.name.toLowerCase().replace(/\s+/g, '')}dharwad.com</p>
                   </div>
                 </div>
               </div>
