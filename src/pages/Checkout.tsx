@@ -178,7 +178,7 @@ const Checkout = () => {
                             id="city"
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
-                            placeholder="New York"
+                            placeholder="Dharwad"
                           />
                         </div>
                         
@@ -189,22 +189,22 @@ const Checkout = () => {
                               <SelectValue placeholder="Select State" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="NY">New York</SelectItem>
-                              <SelectItem value="CA">California</SelectItem>
-                              <SelectItem value="TX">Texas</SelectItem>
-                              <SelectItem value="FL">Florida</SelectItem>
-                              <SelectItem value="IL">Illinois</SelectItem>
+                              <SelectItem value="KA">Karnataka</SelectItem>
+                              <SelectItem value="MH">Maharashtra</SelectItem>
+                              <SelectItem value="TN">Tamil Nadu</SelectItem>
+                              <SelectItem value="AP">Andhra Pradesh</SelectItem>
+                              <SelectItem value="KL">Kerala</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                         
                         <div className="space-y-2">
-                          <Label htmlFor="zipCode">ZIP Code</Label>
+                          <Label htmlFor="zipCode">PIN Code</Label>
                           <Input
                             id="zipCode"
                             value={zipCode}
                             onChange={(e) => setZipCode(e.target.value)}
-                            placeholder="10001"
+                            placeholder="580001"
                           />
                         </div>
                       </div>
@@ -329,10 +329,10 @@ const Checkout = () => {
                               <SelectValue placeholder="Select Bank" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="chase">Chase Bank</SelectItem>
-                              <SelectItem value="boa">Bank of America</SelectItem>
-                              <SelectItem value="wells">Wells Fargo</SelectItem>
-                              <SelectItem value="citi">Citibank</SelectItem>
+                              <SelectItem value="hdfc">HDFC Bank</SelectItem>
+                              <SelectItem value="sbi">State Bank of India</SelectItem>
+                              <SelectItem value="icici">ICICI Bank</SelectItem>
+                              <SelectItem value="axis">Axis Bank</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
@@ -354,22 +354,22 @@ const Checkout = () => {
                   <div className="space-y-3 mb-4">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal</span>
-                      <span>$29.94</span>
+                      <span>₹2,994</span>
                     </div>
                     
                     <div className="flex justify-between text-gray-600">
-                      <span>Tax (8%)</span>
-                      <span>$2.40</span>
+                      <span>GST (5%)</span>
+                      <span>₹149.70</span>
                     </div>
                     
                     <div className="flex justify-between text-gray-600">
                       <span>Delivery Fee</span>
-                      <span>$2.99</span>
+                      <span>₹49</span>
                     </div>
                     
                     <div className="flex justify-between text-green-600">
                       <span>Discount</span>
-                      <span>-$5.99</span>
+                      <span>-₹599</span>
                     </div>
                   </div>
                   
@@ -377,7 +377,7 @@ const Checkout = () => {
                   
                   <div className="flex justify-between font-semibold text-lg text-gray-900 mb-6">
                     <span>Total</span>
-                    <span>$29.34</span>
+                    <span>₹2,593.70</span>
                   </div>
                   
                   <Button 

@@ -132,7 +132,7 @@ const OrderConfirmation = () => {
                   <MapPin className="h-5 w-5 text-mcbongu-500 mr-2" />
                   <div>
                     <span className="block text-sm text-gray-500">Delivery Address</span>
-                    <span className="font-semibold text-gray-900">123 Main St, New York</span>
+                    <span className="font-semibold text-gray-900">123 Main St, Dharwad</span>
                   </div>
                 </div>
               </div>
@@ -154,7 +154,7 @@ const OrderConfirmation = () => {
                       <span className="text-gray-700">2 x Classic Burger</span>
                       <span className="block text-sm text-gray-500">Burger Kingdom</span>
                     </div>
-                    <span className="text-gray-700">$17.98</span>
+                    <span className="text-gray-700">₹1,798</span>
                   </div>
                   
                   <div className="flex justify-between">
@@ -162,7 +162,7 @@ const OrderConfirmation = () => {
                       <span className="text-gray-700">1 x French Fries</span>
                       <span className="block text-sm text-gray-500">Burger Kingdom</span>
                     </div>
-                    <span className="text-gray-700">$3.99</span>
+                    <span className="text-gray-700">₹399</span>
                   </div>
                   
                   <div className="flex justify-between">
@@ -170,7 +170,7 @@ const OrderConfirmation = () => {
                       <span className="text-gray-700">2 x Soft Drink</span>
                       <span className="block text-sm text-gray-500">Burger Kingdom</span>
                     </div>
-                    <span className="text-gray-700">$3.98</span>
+                    <span className="text-gray-700">₹398</span>
                   </div>
                 </div>
               </div>
@@ -180,23 +180,23 @@ const OrderConfirmation = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between text-gray-600">
                     <span>Subtotal</span>
-                    <span>$25.95</span>
+                    <span>₹2,595</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
-                    <span>Tax</span>
-                    <span>$2.08</span>
+                    <span>GST</span>
+                    <span>₹129.75</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
                     <span>Delivery Fee</span>
-                    <span>$2.99</span>
+                    <span>₹49</span>
                   </div>
                   <div className="flex justify-between text-green-600">
                     <span>Discount</span>
-                    <span>-$5.99</span>
+                    <span>-₹599</span>
                   </div>
                   <div className="flex justify-between font-semibold text-gray-900 pt-2 border-t border-gray-100">
                     <span>Total</span>
-                    <span>$25.03</span>
+                    <span>₹2,174.75</span>
                   </div>
                 </div>
               </div>
