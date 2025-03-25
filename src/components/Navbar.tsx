@@ -62,7 +62,7 @@ const Navbar = () => {
           {/* Location selector - only on large screens */}
           <div className={`hidden md:flex items-center space-x-2 ${useBackground ? 'text-gray-700' : 'text-white'}`}>
             <MapPin className="h-4 w-4" />
-            <span className="text-sm font-medium">New York</span>
+            <span className="text-sm font-medium">Dharwad</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -140,7 +140,7 @@ const Navbar = () => {
           <div className="px-4 pt-2 pb-4 space-y-4">
             <div className="flex items-center space-x-2 text-gray-700 border-b border-gray-100 pb-2">
               <MapPin className="h-4 w-4" />
-              <span className="text-sm font-medium">New York</span>
+              <span className="text-sm font-medium">Dharwad</span>
             </div>
             
             <Link to="/restaurants" className="block navbar-item py-2 text-gray-700 hover:text-mcbongu-500">
