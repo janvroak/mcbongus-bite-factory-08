@@ -26,9 +26,9 @@ const Offers = () => {
       id: 1,
       title: "50% OFF Your First Order",
       code: "WELCOME50",
-      description: "Get 50% off on your first order up to $20. Valid for new users only.",
+      description: "Get 50% off on your first order up to ₹200. Valid for new users only.",
       validUntil: "December 31, 2023",
-      minOrder: "$30",
+      minOrder: "₹300",
       category: "New Users"
     },
     {
@@ -37,7 +37,7 @@ const Offers = () => {
       code: "FREEWEEKEND",
       description: "Enjoy free delivery on all orders placed during weekends.",
       validUntil: "Ongoing",
-      minOrder: "$15",
+      minOrder: "₹150",
       category: "Weekends"
     },
     {
@@ -46,7 +46,7 @@ const Offers = () => {
       code: "BDAYTREAT",
       description: "Celebrate your birthday month with 15% off on all orders.",
       validUntil: "Valid during birthday month",
-      minOrder: "$20",
+      minOrder: "₹200",
       category: "Birthday Special"
     },
     {
@@ -55,7 +55,7 @@ const Offers = () => {
       code: "BOGO2023",
       description: "Order one meal and get another one of equal or lesser value for free.",
       validUntil: "Limited time offer",
-      minOrder: "$25",
+      minOrder: "₹250",
       category: "Special Deal"
     },
     {
@@ -64,7 +64,7 @@ const Offers = () => {
       code: "FAMILY30",
       description: "Save 30% when you order family meal bundles from participating restaurants.",
       validUntil: "December 15, 2023",
-      minOrder: "$50",
+      minOrder: "₹500",
       category: "Family Deals"
     },
     {
@@ -176,9 +176,9 @@ const Offers = () => {
                     <PercentCircle className="h-6 w-6" />
                     <span className="font-semibold">Special Offer</span>
                   </div>
-                  <h2 className="text-3xl font-bold text-mcbongu-900 mb-4">Refer a Friend, Get $10 Off</h2>
+                  <h2 className="text-3xl font-bold text-mcbongu-900 mb-4">Refer a Friend, Get ₹100 Off</h2>
                   <p className="text-gray-700 mb-6">
-                    Invite your friends to McBongu's. When they sign up and place their first order using your referral code, you'll both receive $10 off your next order!
+                    Invite your friends to McBongu's. When they sign up and place their first order using your referral code, you'll both receive ₹100 off your next order!
                   </p>
                   <Button className="bg-mcbongu-500 hover:bg-mcbongu-600">
                     Refer Now <ArrowRight className="ml-2 h-4 w-4" />
