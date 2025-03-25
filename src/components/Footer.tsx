@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Headphones, MessageCircle, FileText } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -57,25 +57,35 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900">Support</h3>
             <ul className="space-y-2">
-              <li>
+              <li className="flex items-center space-x-2">
+                <Headphones size={16} className="text-mcbongu-500" />
                 <Link to="/help" className="text-gray-600 hover:text-mcbongu-500 transition-colors">
                   Help Center
                 </Link>
               </li>
-              <li>
+              <li className="flex items-center space-x-2">
+                <FileText size={16} className="text-mcbongu-500" />
                 <Link to="/faq" className="text-gray-600 hover:text-mcbongu-500 transition-colors">
                   FAQs
                 </Link>
               </li>
-              <li>
+              <li className="flex items-center space-x-2">
+                <MessageCircle size={16} className="text-mcbongu-500" />
                 <Link to="/contact" className="text-gray-600 hover:text-mcbongu-500 transition-colors">
                   Contact Us
                 </Link>
               </li>
-              <li>
+              <li className="flex items-center space-x-2">
+                <FileText size={16} className="text-mcbongu-500" />
                 <Link to="/privacy" className="text-gray-600 hover:text-mcbongu-500 transition-colors">
                   Privacy Policy
                 </Link>
+              </li>
+              <li className="mt-3 p-3 bg-white rounded-lg shadow-sm">
+                <p className="text-sm font-medium text-gray-900 mb-1">Need urgent help?</p>
+                <a href="tel:+919480212345" className="text-mcbongu-500 font-medium text-sm flex items-center">
+                  <Phone size={14} className="mr-1" /> +91 94802 12345
+                </a>
               </li>
             </ul>
           </div>
