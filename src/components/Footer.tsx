@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-mcbongu-500">McBongu's</h3>
             <p className="text-gray-600 max-w-xs">
-              Delivering your favorite meals with speed, quality, and a touch of culinary magic.
+              Delivering your favorite meals with speed, quality, and a touch of culinary magic in Dharwad.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-mcbongu-500 transition-colors">
@@ -86,11 +86,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 text-gray-600">
                 <MapPin size={18} className="mt-1 flex-shrink-0 text-mcbongu-500" />
-                <span>742 Evergreen Terrace, Springfield, IL 62701</span>
+                <span>Station Road, Dharwad, Karnataka 580001</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-600">
                 <Phone size={18} className="flex-shrink-0 text-mcbongu-500" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 94802 12345</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-600">
                 <Mail size={18} className="flex-shrink-0 text-mcbongu-500" />

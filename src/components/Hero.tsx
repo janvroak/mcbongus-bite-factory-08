@@ -30,7 +30,7 @@ const Hero = () => {
               <Search className="h-5 w-5 text-gray-400 mr-2" />
               <input
                 type="text"
-                placeholder="Enter your delivery address"
+                placeholder="Enter your delivery address in Dharwad"
                 className="bg-transparent outline-none flex-1 text-gray-800 placeholder-gray-400"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}

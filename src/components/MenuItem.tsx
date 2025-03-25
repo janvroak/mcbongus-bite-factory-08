@@ -46,6 +46,10 @@ const MenuItem = ({ item, onAddToCart }: MenuItemProps) => {
               alt={item.name} 
               className="w-full h-full object-cover transition-transform duration-500"
               style={{ transform: isHovered ? 'scale(1.1)' : 'scale(1)' }}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000";
+              }}
             />
           </div>
         )}

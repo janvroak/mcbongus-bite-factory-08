@@ -13,6 +13,10 @@ interface RestaurantCardProps {
     deliveryTime: string;
     minOrder: string;
     featured?: boolean;
+    menuItems?: {
+      name: string;
+      description: string;
+    }[];
   };
 }
 
@@ -38,6 +42,10 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
             alt={restaurant.name} 
             className="w-full h-full object-cover transition-transform duration-700 ease-out"
             style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000";
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
         </div>

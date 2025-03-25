@@ -6,7 +6,6 @@ import FeaturedRestaurants from "@/components/FeaturedRestaurants";
 import PopularCuisines from "@/components/PopularCuisines";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
-import DownloadApp from "@/components/DownloadApp";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 
@@ -24,7 +23,6 @@ const Index = () => {
         <FeaturedRestaurants />
         <WhyChooseUs />
         <Testimonials />
-        <DownloadApp />
         <Newsletter />
       </main>
       <Footer />

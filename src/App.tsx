@@ -15,6 +15,7 @@ import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Offers from "./pages/Offers";
+import Career from "./pages/Career";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
           <Route path="/offers" element={<Offers />} />
+          <Route path="/career" element={<Career />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

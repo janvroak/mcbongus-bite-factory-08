@@ -6,100 +6,21 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RestaurantCard from "@/components/RestaurantCard";
-
-// Dummy data for restaurants
-const allRestaurants = [
-  {
-    id: "1",
-    name: "Burger Kingdom",
-    image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    cuisine: "American, Burgers",
-    rating: 4.8,
-    deliveryTime: "20-30 min",
-    minOrder: "$10",
-    featured: true
-  },
-  {
-    id: "2",
-    name: "Pizza Haven",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    cuisine: "Italian, Pizza",
-    rating: 4.5,
-    deliveryTime: "25-35 min",
-    minOrder: "$12",
-    featured: true
-  },
-  {
-    id: "3",
-    name: "Sushi Master",
-    image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    cuisine: "Japanese, Sushi",
-    rating: 4.7,
-    deliveryTime: "30-40 min",
-    minOrder: "$15",
-    featured: true
-  },
-  {
-    id: "4",
-    name: "Taco Express",
-    image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    cuisine: "Mexican, Tacos",
-    rating: 4.3,
-    deliveryTime: "15-25 min",
-    minOrder: "$8",
-    featured: false
-  },
-  {
-    id: "5",
-    name: "Curry House",
-    image: "https://images.unsplash.com/photo-1585937421612-70a008356c36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    cuisine: "Indian, Curry",
-    rating: 4.6,
-    deliveryTime: "30-45 min",
-    minOrder: "$15",
-    featured: false
-  },
-  {
-    id: "6",
-    name: "Noodle House",
-    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    cuisine: "Chinese, Noodles",
-    rating: 4.5,
-    deliveryTime: "25-35 min",
-    minOrder: "$10",
-    featured: false
-  },
-  {
-    id: "7",
-    name: "Mediterranean Delight",
-    image: "https://images.unsplash.com/photo-1615363001828-df22f808f34c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    cuisine: "Mediterranean, Greek",
-    rating: 4.4,
-    deliveryTime: "25-40 min",
-    minOrder: "$12",
-    featured: false
-  },
-  {
-    id: "8",
-    name: "Steakhouse Grill",
-    image: "https://images.unsplash.com/photo-1594041680711-51940116c258?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    cuisine: "American, Steaks",
-    rating: 4.8,
-    deliveryTime: "35-50 min",
-    minOrder: "$20",
-    featured: false
-  }
-];
+import { allRestaurants } from "@/data/restaurants"; 
 
 const cuisineOptions = [
   "All Cuisines",
-  "American",
-  "Italian",
-  "Japanese",
-  "Mexican",
-  "Indian",
+  "North Indian",
+  "South Indian",
+  "Maharashtrian",
+  "Gujarati", 
+  "Bengali",
+  "Punjabi",
+  "Street Food",
+  "Biryani",
+  "Fast Food",
   "Chinese",
-  "Mediterranean"
+  "Continental"
 ];
 
 const Restaurants = () => {
@@ -130,11 +51,16 @@ const Restaurants = () => {
       );
     }
     
-    // Filter by search query
+    // Filter by search query - enhanced to search in both restaurant names, cuisines and menu items
     if (searchQuery) {
+      const searchLower = searchQuery.toLowerCase();
       result = result.filter(restaurant => 
-        restaurant.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        restaurant.cuisine.toLowerCase().includes(searchQuery.toLowerCase())
+        restaurant.name.toLowerCase().includes(searchLower) || 
+        restaurant.cuisine.toLowerCase().includes(searchLower) ||
+        restaurant.menuItems?.some(item => 
+          item.name.toLowerCase().includes(searchLower) || 
+          item.description.toLowerCase().includes(searchLower)
+        )
       );
     }
     
@@ -157,7 +83,7 @@ const Restaurants = () => {
       <main className="flex-grow pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Restaurants</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Restaurants in Dharwad</h1>
             <p className="text-gray-600">Discover restaurants that deliver to your doorstep</p>
           </div>
           
@@ -170,7 +96,7 @@ const Restaurants = () => {
                 </div>
                 <input
                   type="text"
-                  placeholder="Search restaurants or cuisines..."
+                  placeholder="Search restaurants, dishes, or cuisines..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mcbongu-500 focus:border-transparent"
