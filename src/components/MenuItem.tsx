@@ -17,7 +17,7 @@ interface MenuItemProps {
     id: string;
     name: string;
     description: string;
-    price: string;
+    price: number | string;
     image: string;
     restaurantName?: string;
     tags?: string[];
@@ -38,8 +38,10 @@ const MenuItem = ({ item, restaurantName, onAddToCart }: MenuItemProps) => {
   const { addItem } = useCartStore();
   
   const handleAddToCart = () => {
-    // Parse price string (e.g., "₹249" to 249)
-    const priceValue = parseFloat(item.price.replace(/[^\d.]/g, ''));
+    // Handle both number and string price formats
+    const priceValue = typeof item.price === 'number' 
+      ? item.price 
+      : parseFloat(item.price.replace(/[^\d.]/g, ''));
     
     // Add item to cart store
     addItem({
@@ -61,6 +63,9 @@ const MenuItem = ({ item, restaurantName, onAddToCart }: MenuItemProps) => {
       description: "You can view your cart by clicking the cart icon."
     });
   };
+  
+  // Format price display to include ₹ symbol if it's a number
+  const displayPrice = typeof item.price === 'number' ? `₹${item.price}` : item.price;
   
   return (
     <div 
@@ -156,7 +161,7 @@ const MenuItem = ({ item, restaurantName, onAddToCart }: MenuItemProps) => {
       </div>
       
       <div className="flex items-center justify-between mt-4 sm:mt-0">
-        <p className="font-medium text-gray-900 sm:mr-4">{item.price}</p>
+        <p className="font-medium text-gray-900 sm:mr-4">{displayPrice}</p>
         <Button 
           onClick={handleAddToCart}
           variant="ghost"
