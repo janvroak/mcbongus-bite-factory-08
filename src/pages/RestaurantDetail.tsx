@@ -50,7 +50,7 @@ const RestaurantDetail = () => {
         menuCategories: foundRestaurant.menuCategories || createMenuCategories(foundRestaurant.id)
       };
       
-      setRestaurant(restaurantWithMenu);
+      setRestaurant(restaurantWithMenu as Restaurant);
       
       // Initialize all categories as expanded
       const initialExpanded: Record<string, boolean> = {};
