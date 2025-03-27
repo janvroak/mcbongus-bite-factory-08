@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Star, Clock, DollarSign, MapPin, ChevronDown, ChevronUp, ShoppingCart, ArrowLeft } from "lucide-react";
@@ -155,7 +154,7 @@ const RestaurantDetail = () => {
             
             <TabsContent value="menu" className="mt-6">
               <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-                {restaurant.menuCategories?.map((category) => (
+                {restaurant.menuCategories && restaurant.menuCategories.map((category) => (
                   <div key={category.id} className="border-b border-gray-100 last:border-b-0">
                     <button
                       className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
