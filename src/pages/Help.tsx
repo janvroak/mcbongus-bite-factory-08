@@ -3,7 +3,7 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Headphones, MessageCircle, FileText, Phone, Mail, ArrowRight } from "lucide-react";
+import { Headphones, MessageCircle, FileText, Phone, Mail, ArrowRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Help = () => {

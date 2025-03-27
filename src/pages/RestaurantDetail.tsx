@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Star, Clock, DollarSign, MapPin, ChevronDown, ChevronUp, ShoppingCart, ArrowLeft } from "lucide-react";
@@ -25,6 +26,8 @@ interface Restaurant {
   address: string;
   description: string;
   menuCategories?: any[];
+  featured?: boolean;
+  menuItems?: any[];
 }
 
 const RestaurantDetail = () => {
