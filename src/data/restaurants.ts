@@ -21,6 +21,7 @@ export const allRestaurants = [
     distance: "2.1 km",
     address: "23/A, Shakambhari Complex, Dharwad",
     description: "Authentic North Indian cuisine in the heart of Dharwad. Famous for our tandoori specialties and creamy curries.",
+    menuCategories: createMenuCategories("r1"),
     featured: true
   },
   {
@@ -35,7 +36,8 @@ export const allRestaurants = [
     minOrder: "₹150",
     distance: "1.8 km",
     address: "45, College Road, Dharwad",
-    description: "Serving authentic South Indian dishes. Our dosas, idlis, and vadas are made fresh daily using traditional recipes."
+    description: "Serving authentic South Indian dishes. Our dosas, idlis, and vadas are made fresh daily using traditional recipes.",
+    menuCategories: createMenuCategories("r2")
   },
   {
     id: "r3",
@@ -50,7 +52,38 @@ export const allRestaurants = [
     distance: "3.2 km",
     address: "78, Jubilee Circle, Dharwad",
     description: "Specializing in aromatic biryanis cooked in the traditional dum style. Try our signature Hyderabadi Biryani.",
+    menuCategories: createMenuCategories("r3"),
     featured: true
+  },
+  {
+    id: "r3a",
+    name: "Punjab Dhaba",
+    image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "North Indian",
+    rating: 4.4,
+    reviewCount: 278,
+    deliveryTime: "35-45 min",
+    minOrder: "₹200",
+    distance: "2.7 km",
+    address: "124, Railway Station Road, Dharwad",
+    description: "Authentic Punjabi food served in a rustic dhaba-style environment. Famous for our butter chicken and dal makhani.",
+    menuCategories: createMenuCategories("r3a")
+  },
+  {
+    id: "r3b",
+    name: "South Spice",
+    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "South Indian",
+    rating: 4.2,
+    reviewCount: 156,
+    deliveryTime: "30-40 min",
+    minOrder: "₹180",
+    distance: "2.3 km",
+    address: "89, Market Circle, Dharwad",
+    description: "Authentic South Indian restaurant specializing in a variety of dosas, idlis, and traditional meals served on banana leaves.",
+    menuCategories: createMenuCategories("r3b")
   },
   
   // Italian Restaurants
@@ -85,6 +118,51 @@ export const allRestaurants = [
     description: "Specializing in homemade pasta with a variety of sauces. Our tiramisu is a must-try!",
     menuCategories: createItalianMenuCategories("r5")
   },
+  {
+    id: "r5a",
+    name: "Bella Italia",
+    image: "https://images.unsplash.com/photo-1607914660217-754fdd90041d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1607914660217-754fdd90041d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Italian",
+    rating: 4.7,
+    reviewCount: 198,
+    deliveryTime: "40-50 min",
+    minOrder: "₹350",
+    distance: "4.1 km",
+    address: "17, Lake View Road, Dharwad",
+    description: "Authentic Italian trattoria offering wood-fired pizzas, fresh pastas, and imported Italian wines in a cozy atmosphere.",
+    menuCategories: createItalianMenuCategories("r5a")
+  },
+  {
+    id: "r5b",
+    name: "Rustico",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Italian",
+    rating: 4.5,
+    reviewCount: 167,
+    deliveryTime: "35-45 min",
+    minOrder: "₹300",
+    distance: "3.3 km",
+    address: "64, Temple Road, Dharwad",
+    description: "Rustic Italian cuisine with a modern twist, featuring regional dishes from Tuscany and Sicily. Try our housemade gnocchi.",
+    menuCategories: createItalianMenuCategories("r5b")
+  },
+  {
+    id: "r5c",
+    name: "Milano Pizzeria",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Italian",
+    rating: 4.3,
+    reviewCount: 142,
+    deliveryTime: "25-35 min",
+    minOrder: "₹250",
+    distance: "2.2 km",
+    address: "38, Clock Tower Circle, Dharwad",
+    description: "Specializing in authentic Neapolitan pizzas baked in a wood-fired oven. Our dough is fermented for 48 hours for perfect texture.",
+    menuCategories: createItalianMenuCategories("r5c")
+  },
   
   // Japanese Restaurants
   {
@@ -117,6 +195,51 @@ export const allRestaurants = [
     address: "89, Heritage Lane, Dharwad",
     description: "Specializing in authentic Japanese ramen with rich broths and fresh noodles.",
     menuCategories: createJapaneseMenuCategories("r7")
+  },
+  {
+    id: "r7a",
+    name: "Kobe Japanese Grill",
+    image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Japanese",
+    rating: 4.6,
+    reviewCount: 189,
+    deliveryTime: "45-55 min",
+    minOrder: "₹450",
+    distance: "5.1 km",
+    address: "53, Luxury Mall, Dharwad",
+    description: "Premium Japanese teppanyaki restaurant featuring skilled chefs who prepare your meal at the table with flair and precision.",
+    menuCategories: createJapaneseMenuCategories("r7a")
+  },
+  {
+    id: "r7b",
+    name: "Izakaya Lounge",
+    image: "https://images.unsplash.com/photo-1617196034183-421b4917c92d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1617196034183-421b4917c92d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Japanese",
+    rating: 4.4,
+    reviewCount: 156,
+    deliveryTime: "35-45 min",
+    minOrder: "₹350",
+    distance: "3.9 km",
+    address: "27, Hilltop Plaza, Dharwad",
+    description: "Modern Japanese pub serving small plates, kushiyaki skewers, and a wide selection of sake in a casual atmosphere.",
+    menuCategories: createJapaneseMenuCategories("r7b")
+  },
+  {
+    id: "r7c",
+    name: "Matcha House",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Japanese",
+    rating: 4.2,
+    reviewCount: 132,
+    deliveryTime: "30-40 min",
+    minOrder: "₹300",
+    distance: "2.8 km",
+    address: "14, Green Avenue, Dharwad",
+    description: "Specialty café focusing on matcha-based desserts, Japanese teas, and light bites in a zen-inspired setting.",
+    menuCategories: createJapaneseMenuCategories("r7c")
   },
   
   // Mexican Restaurants
@@ -151,6 +274,51 @@ export const allRestaurants = [
     description: "Specializing in street-style tacos and traditional Mexican flavors.",
     menuCategories: createMexicanMenuCategories("r9")
   },
+  {
+    id: "r9a",
+    name: "El Mariachi",
+    image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Mexican",
+    rating: 4.5,
+    reviewCount: 187,
+    deliveryTime: "35-45 min",
+    minOrder: "₹300",
+    distance: "3.4 km",
+    address: "43, Fiesta Avenue, Dharwad",
+    description: "Family-run Mexican restaurant serving authentic regional specialties from Oaxaca and Yucatan. Famous for our mole sauce.",
+    menuCategories: createMexicanMenuCategories("r9a")
+  },
+  {
+    id: "r9b",
+    name: "Cantina Fresh",
+    image: "https://images.unsplash.com/photo-1613514785940-daed07f8e2c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1613514785940-daed07f8e2c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Mexican",
+    rating: 4.3,
+    reviewCount: 153,
+    deliveryTime: "30-40 min",
+    minOrder: "₹280",
+    distance: "2.7 km",
+    address: "19, College Square, Dharwad",
+    description: "Modern Mexican eatery focusing on fresh ingredients and bold flavors. Our handmade tortillas are made daily.",
+    menuCategories: createMexicanMenuCategories("r9b")
+  },
+  {
+    id: "r9c",
+    name: "La Salsa",
+    image: "https://images.unsplash.com/photo-1464219222984-216ebffaaf85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1464219222984-216ebffaaf85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Mexican",
+    rating: 4.1,
+    reviewCount: 129,
+    deliveryTime: "25-35 min",
+    minOrder: "₹250",
+    distance: "1.9 km",
+    address: "72, West Road, Dharwad",
+    description: "Quick-service Mexican restaurant known for our variety of homemade salsas ranging from mild to extremely spicy.",
+    menuCategories: createMexicanMenuCategories("r9c")
+  },
   
   // American Restaurants
   {
@@ -184,6 +352,51 @@ export const allRestaurants = [
     description: "American comfort food including burgers, sandwiches, and all-day breakfast.",
     menuCategories: createAmericanMenuCategories("r11")
   },
+  {
+    id: "r11a",
+    name: "Route 66 Grill",
+    image: "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "American",
+    rating: 4.6,
+    reviewCount: 214,
+    deliveryTime: "35-45 min",
+    minOrder: "₹280",
+    distance: "3.1 km",
+    address: "25, Industrial Area, Dharwad",
+    description: "Classic American roadhouse featuring flame-grilled burgers, BBQ ribs, and loaded nachos in a retro atmosphere.",
+    menuCategories: createAmericanMenuCategories("r11a")
+  },
+  {
+    id: "r11b",
+    name: "All-American Deli",
+    image: "https://images.unsplash.com/photo-1573407947625-124549a211fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1573407947625-124549a211fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "American",
+    rating: 4.2,
+    reviewCount: 156,
+    deliveryTime: "25-35 min",
+    minOrder: "₹220",
+    distance: "2.0 km",
+    address: "34, University Road, Dharwad",
+    description: "New York-style deli serving overstuffed sandwiches, reubens, and authentic hot dogs with all the fixings.",
+    menuCategories: createAmericanMenuCategories("r11b")
+  },
+  {
+    id: "r11c",
+    name: "Southern Comfort",
+    image: "https://images.unsplash.com/photo-1551615593-ef5fe247e8f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1551615593-ef5fe247e8f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "American",
+    rating: 4.4,
+    reviewCount: 183,
+    deliveryTime: "40-50 min",
+    minOrder: "₹300",
+    distance: "3.6 km",
+    address: "77, Garden Lane, Dharwad",
+    description: "Southern US cuisine featuring fried chicken, biscuits and gravy, mac and cheese, and peach cobbler for dessert.",
+    menuCategories: createAmericanMenuCategories("r11c")
+  },
   
   // Chinese Restaurants
   {
@@ -216,5 +429,50 @@ export const allRestaurants = [
     address: "72, Market Complex, Dharwad",
     description: "Quick and delicious Chinese food featuring wok-fried dishes and noodle specialties.",
     menuCategories: createChineseMenuCategories("r13")
+  },
+  {
+    id: "r13a",
+    name: "Sichuan House",
+    image: "https://images.unsplash.com/photo-1512058454905-6b841e7ad132?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1512058454905-6b841e7ad132?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Chinese",
+    rating: 4.5,
+    reviewCount: 176,
+    deliveryTime: "35-45 min",
+    minOrder: "₹280",
+    distance: "2.8 km",
+    address: "48, Spice Road, Dharwad",
+    description: "Specializing in authentic Sichuan cuisine featuring bold, spicy flavors and the signature numbing Sichuan peppercorns.",
+    menuCategories: createChineseMenuCategories("r13a")
+  },
+  {
+    id: "r13b",
+    name: "Dim Sum Palace",
+    image: "https://images.unsplash.com/photo-1496116218417-1a56e30069a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1496116218417-1a56e30069a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Chinese",
+    rating: 4.6,
+    reviewCount: 192,
+    deliveryTime: "40-50 min",
+    minOrder: "₹300",
+    distance: "3.5 km",
+    address: "29, Pearl Garden, Dharwad",
+    description: "Authentic Cantonese dim sum restaurant offering a wide variety of dumplings, buns, and small plates served all day.",
+    menuCategories: createChineseMenuCategories("r13b")
+  },
+  {
+    id: "r13c",
+    name: "Oriental Express",
+    image: "https://images.unsplash.com/photo-1603138033887-1df19aaa8e97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    coverImage: "https://images.unsplash.com/photo-1603138033887-1df19aaa8e97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    cuisine: "Chinese",
+    rating: 4.3,
+    reviewCount: 162,
+    deliveryTime: "25-35 min",
+    minOrder: "₹220",
+    distance: "2.1 km",
+    address: "81, Hill Road, Dharwad",
+    description: "Fast and flavorful Chinese cuisine with a focus on quick delivery and consistent quality. Our kung pao chicken is a local favorite.",
+    menuCategories: createChineseMenuCategories("r13c")
   }
 ];

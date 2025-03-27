@@ -34,6 +34,26 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           veg: true,
           spicy: false,
           popular: false
+        },
+        {
+          id: `${restaurantId}-taco-4`,
+          name: "Fish Tacos (3 pc)",
+          description: "Beer-battered fish with cabbage slaw, crema, and pico de gallo",
+          price: "₹279",
+          image: "https://images.unsplash.com/photo-1464219222984-216ebffaaf85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-taco-5`,
+          name: "Chicken Tinga Tacos (3 pc)",
+          description: "Shredded chicken in chipotle sauce with lettuce, cheese, and sour cream",
+          price: "₹259",
+          image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: true,
+          popular: true
         }
       ]
     },
@@ -70,6 +90,62 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           veg: true,
           spicy: false,
           popular: true
+        },
+        {
+          id: `${restaurantId}-burrito-4`,
+          name: "Carnitas Burrito",
+          description: "Slow-roasted pork, rice, pinto beans, cheese, and pico de gallo",
+          price: "₹319",
+          image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: false
+        },
+        {
+          id: `${restaurantId}-burrito-5`,
+          name: "California Burrito",
+          description: "Carne asada, french fries, guacamole, cheese, and sour cream",
+          price: "₹339",
+          image: "https://images.unsplash.com/photo-1635275431902-ba5662c43dd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: true,
+          popular: true
+        }
+      ]
+    },
+    {
+      id: "appetizers",
+      name: "Appetizers",
+      items: [
+        {
+          id: `${restaurantId}-app-1`,
+          name: "Guacamole & Chips",
+          description: "Freshly made guacamole with hand-cut tortilla chips",
+          price: "₹199",
+          image: "https://images.unsplash.com/photo-1600038658687-13242c3dbb4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-app-2`,
+          name: "Nachos Supreme",
+          description: "Tortilla chips loaded with cheese, beans, jalapeños, guacamole, and sour cream",
+          price: "₹249",
+          image: "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: true,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-app-3`,
+          name: "Queso Fundido",
+          description: "Melted cheese with chorizo, served with tortillas",
+          price: "₹219",
+          image: "https://images.unsplash.com/photo-1575576729617-6c2488427182?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: false
         }
       ]
     }

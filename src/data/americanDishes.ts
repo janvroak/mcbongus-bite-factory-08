@@ -44,6 +44,16 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           veg: true,
           spicy: false,
           popular: true
+        },
+        {
+          id: `${restaurantId}-burger-5`,
+          name: "Jalapeño Popper Burger",
+          description: "Beef patty with cream cheese, jalapeños, and crispy bacon",
+          price: "₹339",
+          image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: true,
+          popular: false
         }
       ]
     },
@@ -80,6 +90,62 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           veg: true,
           spicy: false,
           popular: true
+        },
+        {
+          id: `${restaurantId}-side-4`,
+          name: "Sweet Potato Fries",
+          description: "Crispy sweet potato fries with chipotle aioli",
+          price: "₹169",
+          image: "https://images.unsplash.com/photo-1604152135912-04a022e23696?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-side-5`,
+          name: "Loaded Potato Skins",
+          description: "Potato skins topped with cheese, bacon, and sour cream",
+          price: "₹219",
+          image: "https://images.unsplash.com/photo-1579045248293-07e5b2cf30b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: false
+        }
+      ]
+    },
+    {
+      id: "milkshakes",
+      name: "Milkshakes",
+      items: [
+        {
+          id: `${restaurantId}-shake-1`,
+          name: "Classic Vanilla Shake",
+          description: "Creamy vanilla milkshake topped with whipped cream",
+          price: "₹179",
+          image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-shake-2`,
+          name: "Chocolate Fudge Shake",
+          description: "Rich chocolate shake with fudge sauce and chocolate chips",
+          price: "₹199",
+          image: "https://images.unsplash.com/photo-1562179875-a0d11576f566?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-shake-3`,
+          name: "Strawberry Cheesecake Shake",
+          description: "Strawberry milkshake with cheesecake pieces and graham cracker crumbs",
+          price: "₹219",
+          image: "https://images.unsplash.com/photo-1579954115563-e72bf1381629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: false,
+          popular: false
         }
       ]
     }

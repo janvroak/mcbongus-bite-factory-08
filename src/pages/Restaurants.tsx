@@ -12,15 +12,13 @@ const cuisineOptions = [
   "All Cuisines",
   "North Indian",
   "South Indian",
-  "Maharashtrian",
-  "Gujarati", 
-  "Bengali",
-  "Punjabi",
-  "Street Food",
-  "Biryani",
-  "Fast Food",
+  "Italian",
+  "Japanese",
+  "Mexican",
+  "American",
   "Chinese",
-  "Continental"
+  "Biryani",
+  "Fast Food"
 ];
 
 const Restaurants = () => {
@@ -51,16 +49,12 @@ const Restaurants = () => {
       );
     }
     
-    // Filter by search query - enhanced to search in both restaurant names, cuisines and menu items
+    // Filter by search query - search in both restaurant names and cuisines
     if (searchQuery) {
       const searchLower = searchQuery.toLowerCase();
       result = result.filter(restaurant => 
         restaurant.name.toLowerCase().includes(searchLower) || 
-        restaurant.cuisine.toLowerCase().includes(searchLower) ||
-        restaurant.menuItems?.some(item => 
-          item.name.toLowerCase().includes(searchLower) || 
-          item.description.toLowerCase().includes(searchLower)
-        )
+        restaurant.cuisine.toLowerCase().includes(searchLower)
       );
     }
     

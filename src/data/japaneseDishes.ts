@@ -34,6 +34,26 @@ export const createJapaneseMenuCategories = (restaurantId: string) => {
           veg: true,
           spicy: false,
           popular: false
+        },
+        {
+          id: `${restaurantId}-sushi-4`,
+          name: "Dragon Roll (8 pc)",
+          description: "Shrimp tempura roll topped with avocado and eel sauce",
+          price: "₹299",
+          image: "https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: true,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-sushi-5`,
+          name: "Tuna Sashimi (5 pc)",
+          description: "Fresh sliced raw tuna served with wasabi and soy sauce",
+          price: "₹269",
+          image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: true
         }
       ]
     },
@@ -67,6 +87,72 @@ export const createJapaneseMenuCategories = (restaurantId: string) => {
           description: "Vegetable-based broth with tofu, mushrooms, corn, and seasonal vegetables",
           price: "₹279",
           image: "https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-ramen-4`,
+          name: "Spicy Tantanmen",
+          description: "Spicy sesame-based broth with ground pork, bok choy, and chili oil",
+          price: "₹339",
+          image: "https://images.unsplash.com/photo-1617093727343-374698b1b08d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: true,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-ramen-5`,
+          name: "Chicken Shoyu Ramen",
+          description: "Soy sauce-based broth with chicken, mushrooms, and marinated egg",
+          price: "₹309",
+          image: "https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: false
+        }
+      ]
+    },
+    {
+      id: "donburi",
+      name: "Rice Bowls",
+      items: [
+        {
+          id: `${restaurantId}-donburi-1`,
+          name: "Chicken Katsu Don",
+          description: "Breaded chicken cutlet served over rice with egg, onions, and sweet sauce",
+          price: "₹289",
+          image: "https://images.unsplash.com/photo-1598346762291-aee88549193f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-donburi-2`,
+          name: "Gyudon",
+          description: "Thinly sliced beef and onions simmered in sweet soy sauce over rice",
+          price: "₹299",
+          image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-donburi-3`,
+          name: "Salmon Teriyaki Don",
+          description: "Grilled salmon glazed with teriyaki sauce over steamed rice",
+          price: "₹319",
+          image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: false,
+          spicy: false,
+          popular: false
+        },
+        {
+          id: `${restaurantId}-donburi-4`,
+          name: "Vegetable Tempura Don",
+          description: "Assorted vegetable tempura served over rice with tempura sauce",
+          price: "₹269",
+          image: "https://images.unsplash.com/photo-1626466368754-f1e8eee8c0ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: false,
           popular: true
