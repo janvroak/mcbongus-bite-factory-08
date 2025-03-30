@@ -1,3 +1,4 @@
+
 export const createJapaneseMenuCategories = (restaurantId: string) => {
   return [
     {
@@ -39,7 +40,7 @@ export const createJapaneseMenuCategories = (restaurantId: string) => {
           name: "Dragon Roll (8 pc)",
           description: "Shrimp tempura roll topped with avocado and eel sauce",
           price: "₹299",
-          image: "https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1617196034183-421b4917c92d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: true
@@ -65,7 +66,7 @@ export const createJapaneseMenuCategories = (restaurantId: string) => {
           name: "Tonkotsu Ramen",
           description: "Rich pork bone broth with chashu pork, egg, green onions, and nori",
           price: "₹329",
-          image: "https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -75,7 +76,7 @@ export const createJapaneseMenuCategories = (restaurantId: string) => {
           name: "Miso Ramen",
           description: "Miso-flavored broth with corn, bean sprouts, bamboo shoots, and green onions",
           price: "₹299",
-          image: "https://images.unsplash.com/photo-1623341214825-9f4f963727da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false
@@ -95,7 +96,7 @@ export const createJapaneseMenuCategories = (restaurantId: string) => {
           name: "Spicy Tantanmen",
           description: "Spicy sesame-based broth with ground pork, bok choy, and chili oil",
           price: "₹339",
-          image: "https://images.unsplash.com/photo-1617093727343-374698b1b08d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1614563637806-1d0eb7d4d43f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: true
@@ -105,7 +106,7 @@ export const createJapaneseMenuCategories = (restaurantId: string) => {
           name: "Chicken Shoyu Ramen",
           description: "Soy sauce-based broth with chicken, mushrooms, and marinated egg",
           price: "₹309",
-          image: "https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1557872943-16a5ac26437e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false
@@ -141,7 +142,7 @@ export const createJapaneseMenuCategories = (restaurantId: string) => {
           name: "Salmon Teriyaki Don",
           description: "Grilled salmon glazed with teriyaki sauce over steamed rice",
           price: "₹319",
-          image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false

@@ -1,3 +1,4 @@
+
 export const createChineseMenuCategories = (restaurantId: string) => {
   return [
     {
@@ -29,7 +30,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Crispy Fried Wontons (6 pc)",
           description: "Meat-filled wontons deep-fried and served with sweet and sour sauce",
           price: "₹219",
-          image: "https://images.unsplash.com/photo-1625938144755-652e08e359b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false
@@ -49,7 +50,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Sesame Prawn Toast (4 pc)",
           description: "Minced prawn spread on toast, topped with sesame seeds and deep-fried",
           price: "₹239",
-          image: "https://images.unsplash.com/photo-1625866351786-7e0f2ee10adf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1585125583079-a603c5d06e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -75,7 +76,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Sweet and Sour Pork",
           description: "Crispy pork with bell peppers, pineapple, and onions in sweet and sour sauce",
           price: "₹349",
-          image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1594211768133-56c1037e479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false
@@ -105,7 +106,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Peking Duck",
           description: "Roasted duck with thin pancakes, spring onion, cucumber, and hoisin sauce",
           price: "₹499",
-          image: "https://images.unsplash.com/photo-1518492104633-130d0cc84637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1551326844-4df70f78d0e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -141,7 +142,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Hakka Noodles",
           description: "Stir-fried noodles with vegetables in soy sauce",
           price: "₹229",
-          image: "https://images.unsplash.com/photo-1619894991209-c3c9c6d73505?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1607330289024-1535acc30bd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: false,
           popular: true
@@ -151,7 +152,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Chicken Fried Rice",
           description: "Rice stir-fried with chicken, eggs, and vegetables",
           price: "₹249",
-          image: "https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -161,7 +162,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Singapore Noodles",
           description: "Stir-fried rice vermicelli with curry powder, shrimp, and vegetables",
           price: "₹259",
-          image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1617093727343-374698b1b08d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: false
@@ -171,7 +172,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Dan Dan Noodles",
           description: "Spicy Sichuan noodles with chili oil, Sichuan pepper, and minced pork",
           price: "₹269",
-          image: "https://images.unsplash.com/photo-1526318896980-cf78c088247c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1633474598626-e2ce3012c7dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: true

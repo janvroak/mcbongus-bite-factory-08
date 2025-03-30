@@ -1,3 +1,4 @@
+
 export const createMexicanMenuCategories = (restaurantId: string) => {
   return [
     {
@@ -19,7 +20,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Al Pastor Tacos (3 pc)",
           description: "Marinated pork tacos with pineapple, onions, and cilantro on corn tortillas",
           price: "₹249",
-          image: "https://images.unsplash.com/photo-1640197667836-9564c4afc10c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1551504734-5ee1c4a3479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: true
@@ -65,7 +66,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Chicken Burrito",
           description: "Grilled chicken, rice, beans, cheese, pico de gallo, and sour cream",
           price: "₹299",
-          image: "https://images.unsplash.com/photo-1584031651130-696de920ee4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -75,7 +76,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Beef Burrito",
           description: "Seasoned ground beef, rice, beans, cheese, lettuce, and guacamole",
           price: "₹329",
-          image: "https://images.unsplash.com/photo-1604467715878-83e57e8bc129?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1584031651130-696de920ee4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: false
@@ -95,7 +96,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Carnitas Burrito",
           description: "Slow-roasted pork, rice, pinto beans, cheese, and pico de gallo",
           price: "₹319",
-          image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1664478546384-d57ffe74a78c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false
@@ -105,7 +106,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "California Burrito",
           description: "Carne asada, french fries, guacamole, cheese, and sour cream",
           price: "₹339",
-          image: "https://images.unsplash.com/photo-1635275431902-ba5662c43dd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1588556008426-af415581d44b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: true
@@ -141,7 +142,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Queso Fundido",
           description: "Melted cheese with chorizo, served with tortillas",
           price: "₹219",
-          image: "https://images.unsplash.com/photo-1575576729617-6c2488427182?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1624869589344-7fb7075d3ece?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false

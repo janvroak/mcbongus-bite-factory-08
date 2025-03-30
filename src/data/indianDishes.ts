@@ -1,4 +1,3 @@
-
 // Array of common Indian dishes with details
 export const indianDishes = [
   {
@@ -36,7 +35,7 @@ export const indianDishes = [
     name: "Masala Dosa",
     description: "Crispy rice pancake filled with spiced potato filling, served with sambar and chutney",
     price: "₹159",
-    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    image: "https://images.unsplash.com/photo-1630409351241-e90e7f5e434d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     tags: ["South Indian", "Vegetarian"],
     nutritionInfo: {
       calories: "280 kcal",

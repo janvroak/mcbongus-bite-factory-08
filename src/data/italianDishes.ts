@@ -1,3 +1,4 @@
+
 export const createItalianMenuCategories = (restaurantId: string) => {
   return [
     {
@@ -29,7 +30,7 @@ export const createItalianMenuCategories = (restaurantId: string) => {
           name: "Penne Arrabbiata",
           description: "Spicy tomato sauce with garlic, tomatoes, and red chili pepper flakes",
           price: "₹229",
-          image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1608219994488-cc269412b3e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: true,
           popular: false
@@ -95,7 +96,7 @@ export const createItalianMenuCategories = (restaurantId: string) => {
           name: "Prosciutto e Rucola",
           description: "Pizza with mozzarella, prosciutto, arugula, and parmesan shavings",
           price: "₹399",
-          image: "https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1600028068383-ea11a7a101f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true

@@ -50,7 +50,7 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           name: "Jalapeño Popper Burger",
           description: "Beef patty with cream cheese, jalapeños, and crispy bacon",
           price: "₹339",
-          image: "https://images.unsplash.com/photo-1586816001966-79b736744398?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: false
@@ -86,7 +86,7 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           name: "Mac and Cheese",
           description: "Creamy mac and cheese with a crispy breadcrumb topping",
           price: "₹199",
-          image: "https://images.unsplash.com/photo-1612118892406-37f58c1b7393?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1543339494-b4cd1c1e4e52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: false,
           popular: true
@@ -106,7 +106,7 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           name: "Loaded Potato Skins",
           description: "Potato skins topped with cheese, bacon, and sour cream",
           price: "₹219",
-          image: "https://images.unsplash.com/photo-1581438250526-8ab9dc594c13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1585438772425-2599d13a5260?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false
@@ -132,7 +132,7 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           name: "Chocolate Fudge Shake",
           description: "Rich chocolate shake with fudge sauce and chocolate chips",
           price: "₹199",
-          image: "https://images.unsplash.com/photo-1641651762160-3ea1cf4a6140?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: false,
           popular: true
