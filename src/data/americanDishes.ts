@@ -1,4 +1,3 @@
-
 export const createAmericanMenuCategories = (restaurantId: string) => {
   return [
     {
@@ -20,7 +19,7 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           name: "Bacon BBQ Burger",
           description: "Beef patty with cheddar, bacon, fried onions, and BBQ sauce",
           price: "₹349",
-          image: "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -30,7 +29,7 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           name: "Mushroom Swiss Burger",
           description: "Beef patty with sautéed mushrooms, Swiss cheese, and garlic aioli",
           price: "₹329",
-          image: "https://images.unsplash.com/photo-1551615593-ef5fe247e8f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false
@@ -66,7 +65,7 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           name: "French Fries",
           description: "Crispy golden fries served with ketchup",
           price: "₹149",
-          image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: false,
           popular: true

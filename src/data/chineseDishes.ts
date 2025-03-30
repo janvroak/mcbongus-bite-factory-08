@@ -1,4 +1,3 @@
-
 export const createChineseMenuCategories = (restaurantId: string) => {
   return [
     {
@@ -10,7 +9,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Spring Rolls (4 pc)",
           description: "Crispy rolls filled with vegetables and served with sweet chili sauce",
           price: "₹199",
-          image: "https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1515669097368-22e68427d265?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: false,
           popular: true
@@ -20,7 +19,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Dim Sum Basket (6 pc)",
           description: "Assorted steamed dumplings including har gow and siu mai",
           price: "₹249",
-          image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1496116218417-1a56e30069a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -30,7 +29,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Crispy Fried Wontons (6 pc)",
           description: "Meat-filled wontons deep-fried and served with sweet and sour sauce",
           price: "₹219",
-          image: "https://images.unsplash.com/photo-1496116218417-1a56e30069a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1625938144755-652e08e359b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false
@@ -76,7 +75,7 @@ export const createChineseMenuCategories = (restaurantId: string) => {
           name: "Sweet and Sour Pork",
           description: "Crispy pork with bell peppers, pineapple, and onions in sweet and sour sauce",
           price: "₹349",
-          image: "https://images.unsplash.com/photo-1603138033887-1df19aaa8e97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: false

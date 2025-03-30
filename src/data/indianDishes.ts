@@ -21,7 +21,7 @@ export const indianDishes = [
     name: "Paneer Tikka",
     description: "Grilled cottage cheese cubes marinated in yogurt and spices",
     price: "₹249",
-    image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
     tags: ["Vegetarian", "Bestseller"],
     nutritionInfo: {
       calories: "320 kcal",

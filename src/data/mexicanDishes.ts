@@ -1,4 +1,3 @@
-
 export const createMexicanMenuCategories = (restaurantId: string) => {
   return [
     {
@@ -10,7 +9,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Carne Asada Tacos (3 pc)",
           description: "Grilled steak tacos with onions, cilantro, and lime on corn tortillas",
           price: "₹269",
-          image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1570461226513-e08b58a52c53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: true
@@ -20,7 +19,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Al Pastor Tacos (3 pc)",
           description: "Marinated pork tacos with pineapple, onions, and cilantro on corn tortillas",
           price: "₹249",
-          image: "https://images.unsplash.com/photo-1613514785940-daed07f8e2c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1640197667836-9564c4afc10c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: true
@@ -30,7 +29,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Veggie Tacos (3 pc)",
           description: "Black beans, roasted corn, avocado, and pico de gallo on corn tortillas",
           price: "₹229",
-          image: "https://images.unsplash.com/photo-1512838243191-e81e8f66f1fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: false,
           popular: false
@@ -40,7 +39,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Fish Tacos (3 pc)",
           description: "Beer-battered fish with cabbage slaw, crema, and pico de gallo",
           price: "₹279",
-          image: "https://images.unsplash.com/photo-1464219222984-216ebffaaf85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -50,7 +49,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Chicken Tinga Tacos (3 pc)",
           description: "Shredded chicken in chipotle sauce with lettuce, cheese, and sour cream",
           price: "₹259",
-          image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1611250188496-e966043a0629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: true,
           popular: true
@@ -66,7 +65,7 @@ export const createMexicanMenuCategories = (restaurantId: string) => {
           name: "Chicken Burrito",
           description: "Grilled chicken, rice, beans, cheese, pico de gallo, and sour cream",
           price: "₹299",
-          image: "https://images.unsplash.com/photo-1667407223168-40296536c2e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1584031651130-696de920ee4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true

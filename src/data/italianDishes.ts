@@ -1,4 +1,3 @@
-
 export const createItalianMenuCategories = (restaurantId: string) => {
   return [
     {
@@ -10,7 +9,7 @@ export const createItalianMenuCategories = (restaurantId: string) => {
           name: "Spaghetti Carbonara",
           description: "Classic Roman pasta dish with eggs, cheese, pancetta, and black pepper",
           price: "₹249",
-          image: "https://images.unsplash.com/photo-1600803907087-f56d462fd26b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -30,7 +29,7 @@ export const createItalianMenuCategories = (restaurantId: string) => {
           name: "Penne Arrabbiata",
           description: "Spicy tomato sauce with garlic, tomatoes, and red chili pepper flakes",
           price: "₹229",
-          image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: true,
           popular: false
@@ -76,7 +75,7 @@ export const createItalianMenuCategories = (restaurantId: string) => {
           name: "Pepperoni",
           description: "Tomato sauce, mozzarella, and pepperoni",
           price: "₹349",
-          image: "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: false,
           spicy: false,
           popular: true
@@ -132,7 +131,7 @@ export const createItalianMenuCategories = (restaurantId: string) => {
           name: "Panna Cotta",
           description: "Italian dessert of sweetened cream thickened with gelatin and molded",
           price: "₹179",
-          image: "https://images.unsplash.com/photo-1586040140378-b5634cb4c8fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          image: "https://images.unsplash.com/photo-1488477304112-4944851de03d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
           veg: true,
           spicy: false,
           popular: false

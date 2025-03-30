@@ -33,6 +33,18 @@ interface MenuItemProps {
   onAddToCart?: (itemId: string) => void;
 }
 
+// Fallback images categorized by food type
+const fallbackImages = {
+  default: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000",
+  burger: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  pizza: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  pasta: "https://images.unsplash.com/photo-1612874742237-6526221588e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  sushi: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  taco: "https://images.unsplash.com/photo-1570461226513-e08b58a52c53?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  indian: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  dessert: "https://images.unsplash.com/photo-1571877227200-a0d98ea2ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+};
+
 const MenuItem = ({ item, restaurantName, onAddToCart }: MenuItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const { addItem } = useCartStore();
@@ -64,6 +76,19 @@ const MenuItem = ({ item, restaurantName, onAddToCart }: MenuItemProps) => {
     });
   };
   
+  // Get fallback image based on item name
+  const getFallbackImage = (itemName: string) => {
+    const lowerName = itemName.toLowerCase();
+    if (lowerName.includes('burger')) return fallbackImages.burger;
+    if (lowerName.includes('pizza')) return fallbackImages.pizza;
+    if (lowerName.includes('pasta') || lowerName.includes('spaghetti') || lowerName.includes('fettuccine')) return fallbackImages.pasta;
+    if (lowerName.includes('sushi') || lowerName.includes('nigiri') || lowerName.includes('sashimi') || lowerName.includes('roll')) return fallbackImages.sushi;
+    if (lowerName.includes('taco')) return fallbackImages.taco;
+    if (lowerName.includes('curry') || lowerName.includes('paneer') || lowerName.includes('dosa') || lowerName.includes('samosa')) return fallbackImages.indian;
+    if (lowerName.includes('dessert') || lowerName.includes('cake') || lowerName.includes('ice cream') || lowerName.includes('tiramisu')) return fallbackImages.dessert;
+    return fallbackImages.default;
+  };
+  
   // Format price display to include ₹ symbol if it's a number
   const displayPrice = typeof item.price === 'number' ? `₹${item.price}` : item.price;
   
@@ -83,7 +108,7 @@ const MenuItem = ({ item, restaurantName, onAddToCart }: MenuItemProps) => {
               style={{ transform: isHovered ? 'scale(1.1)' : 'scale(1)' }}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.src = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000";
+                target.src = getFallbackImage(item.name);
               }}
             />
           </div>
