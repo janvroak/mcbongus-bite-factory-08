@@ -5,12 +5,13 @@ import { toast } from "sonner";
 import { useEffect, useState } from 'react';
 import { supabase } from "@/integrations/supabase/client";
 
-// Hook for restaurant menu data
+// Hook for restaurant menu data with optimized fetching
 export const useRestaurantMenu = (restaurantId: string) => {
   return useQuery({
     queryKey: ["restaurant", restaurantId, "menu"],
     queryFn: () => apiClient.getRestaurantCategories(restaurantId),
     staleTime: 1000 * 60 * 5, // 5 minutes
+    enabled: !!restaurantId,
   });
 };
 
@@ -19,7 +20,7 @@ export const useMenuItem = (restaurantId: string, itemId: string) => {
   return useQuery({
     queryKey: ["restaurant", restaurantId, "item", itemId],
     queryFn: () => apiClient.getMenuItem(restaurantId, itemId),
-    enabled: !!itemId,
+    enabled: !!itemId && !!restaurantId,
   });
 };
 
