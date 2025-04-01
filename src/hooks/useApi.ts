@@ -52,6 +52,7 @@ export const useAuth = () => {
       toast.success("Login successful!");
     },
     onError: (error: Error) => {
+      // We'll provide a general error message without mentioning email confirmation
       toast.error("Login failed", { description: error.message });
     },
   });
@@ -61,7 +62,7 @@ export const useAuth = () => {
       return apiClient.register(email, password, name);
     },
     onSuccess: () => {
-      toast.success("Registration successful!");
+      toast.success("Registration successful! You can now login.");
     },
     onError: (error: Error) => {
       toast.error("Registration failed", { description: error.message });
