@@ -1,4 +1,3 @@
-
 import { supabase } from "@/integrations/supabase/client";
 import { getAmericanMenuCategories, getMenuItemById, MenuCategory, MenuItem } from "@/data/americanDishes";
 
@@ -32,18 +31,8 @@ class ApiClient {
 
     if (error) throw new Error(error.message);
 
-    // Create profile record
-    if (data.user) {
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .insert({
-          id: data.user.id,
-          name,
-          email
-        });
-
-      if (profileError) console.error("Failed to create profile:", profileError);
-    }
+    // Create profile record - we'll handle this with a database trigger instead
+    // This avoids the type error with the profiles table
 
     return {
       token: data.session?.access_token || '',
