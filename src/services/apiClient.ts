@@ -1,3 +1,4 @@
+
 import { supabase } from "@/integrations/supabase/client";
 import { getAmericanMenuCategories, getMenuItemById, MenuCategory, MenuItem } from "@/data/americanDishes";
 

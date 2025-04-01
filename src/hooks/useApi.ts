@@ -1,7 +1,6 @@
 
-import { useQuery, useMutation, UseMutationOptions, UseQueryOptions } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiClient } from "@/services/apiClient";
-import { MenuCategory, MenuItem } from "@/data/americanDishes";
 import { toast } from "sonner";
 import { useEffect, useState } from 'react';
 import { supabase } from "@/integrations/supabase/client";
