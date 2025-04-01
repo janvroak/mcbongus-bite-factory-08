@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/hooks/useApi";
+import { supabase } from "@/integrations/supabase/client";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
   // If already authenticated, redirect to home
   if (isAuthenticated) {
@@ -26,22 +28,97 @@ const Login = () => {
     return null;
   }
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
     if (!email || !password) {
       toast.error("Please fill in all fields");
+      setIsLoading(false);
       return;
     }
     
-    login.mutate(
-      { email, password },
-      {
-        onSuccess: () => {
-          navigate("/");
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+      
+      if (error) {
+        if (error.message.includes("Email not confirmed")) {
+          toast.error("Email not confirmed", {
+            description: "Please check your inbox and confirm your email before logging in",
+            action: {
+              label: "Resend",
+              onClick: async () => {
+                const { error } = await supabase.auth.resend({
+                  type: 'signup',
+                  email
+                });
+                if (error) {
+                  toast.error("Failed to resend confirmation email");
+                } else {
+                  toast.success("Confirmation email sent!");
+                }
+              }
+            }
+          });
+        } else {
+          toast.error("Login failed", { description: error.message });
         }
+        setIsLoading(false);
+        return;
       }
-    );
+      
+      toast.success("Login successful!");
+      navigate("/");
+    } catch (error) {
+      console.error("Login error:", error);
+      toast.error("An unexpected error occurred");
+      setIsLoading(false);
+    }
+  };
+  
+  const handleGoogleLogin = async () => {
+    setIsLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/`
+        }
+      });
+      
+      if (error) {
+        toast.error("Google login failed", { description: error.message });
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error("Google login error:", error);
+      toast.error("An unexpected error occurred");
+      setIsLoading(false);
+    }
+  };
+  
+  const handleFacebookLogin = async () => {
+    setIsLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'facebook',
+        options: {
+          redirectTo: `${window.location.origin}/`
+        }
+      });
+      
+      if (error) {
+        toast.error("Facebook login failed", { description: error.message });
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error("Facebook login error:", error);
+      toast.error("An unexpected error occurred");
+      setIsLoading(false);
+    }
   };
   
   return (
@@ -67,6 +144,7 @@ const Login = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="john.doe@example.com"
                     className="pl-10"
+                    disabled={isLoading}
                   />
                 </div>
               </div>
@@ -87,11 +165,13 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
                     className="pl-10"
+                    disabled={isLoading}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    disabled={isLoading}
                   >
                     {showPassword ? (
                       <EyeOff className="h-4 w-4" />
@@ -107,6 +187,7 @@ const Login = () => {
                   id="remember" 
                   checked={rememberMe}
                   onCheckedChange={(checked) => setRememberMe(checked as boolean)}
+                  disabled={isLoading}
                 />
                 <Label htmlFor="remember" className="ml-2 text-sm cursor-pointer">
                   Remember me
@@ -115,10 +196,10 @@ const Login = () => {
               
               <Button 
                 type="submit"
-                disabled={login.isPending}
+                disabled={isLoading}
                 className="w-full bg-mcbongu-500 hover:bg-mcbongu-600 text-white rounded-xl py-2"
               >
-                {login.isPending ? (
+                {isLoading ? (
                   <span className="flex items-center justify-center">
                     <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -142,7 +223,13 @@ const Login = () => {
               </div>
               
               <div className="grid grid-cols-2 gap-4">
-                <Button variant="outline" className="border-gray-300 text-gray-700">
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={handleGoogleLogin} 
+                  disabled={isLoading} 
+                  className="border-gray-300 text-gray-700"
+                >
                   <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
@@ -164,7 +251,13 @@ const Login = () => {
                   Google
                 </Button>
                 
-                <Button variant="outline" className="border-gray-300 text-gray-700">
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={handleFacebookLogin} 
+                  disabled={isLoading}
+                  className="border-gray-300 text-gray-700"
+                >
                   <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
