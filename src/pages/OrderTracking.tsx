@@ -5,21 +5,32 @@ import { MapPin, Package, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useOrderStatus } from "@/hooks/useApi";
+import { useOrderStatus, useAuth } from "@/hooks/useApi";
 
 const OrderTracking = () => {
   const { id: orderId } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { data: orderStatus, isLoading, error } = useOrderStatus(orderId || null);
+  const { user } = useAuth();
+  const { 
+    data: orderStatus, 
+    isLoading, 
+    error, 
+    status: orderStatusString, 
+    isRealtime,
+    realtimeStatus 
+  } = useOrderStatus(orderId || null);
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const getStatusStep = () => {
-    if (!orderStatus) return 0;
+    // Get status from realtime or from polling data
+    const status = realtimeStatus?.status || orderStatus?.status;
     
-    switch (orderStatus.status) {
+    if (!status) return 0;
+    
+    switch (status) {
       case 'preparing': return 1;
       case 'ready': return 2;
       case 'out-for-delivery': return 3;
@@ -39,6 +50,12 @@ const OrderTracking = () => {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-900">Track Your Order</h1>
             <p className="text-gray-600 mt-2">Order ID: {orderId}</p>
+            {isRealtime && (
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 mt-2">
+                <span className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></span>
+                Live Updates
+              </span>
+            )}
           </div>
           
           {isLoading ? (
@@ -63,11 +80,16 @@ const OrderTracking = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900">
-                      Status: <span className="text-mcbongu-600 capitalize">{orderStatus?.status.replace(/-/g, ' ')}</span>
+                      Status: <span className="text-mcbongu-600 capitalize">{(realtimeStatus?.status || orderStatus?.status || '').replace(/-/g, ' ')}</span>
                     </h2>
                     <p className="text-gray-600 mt-1">
                       Estimated delivery: 30-45 minutes
                     </p>
+                    {realtimeStatus?.timestamp && (
+                      <p className="text-xs text-gray-500 mt-1">
+                        Last updated: {new Date(realtimeStatus.timestamp).toLocaleTimeString()}
+                      </p>
+                    )}
                   </div>
                   <Button 
                     onClick={() => navigate("/help")}
@@ -117,7 +139,7 @@ const OrderTracking = () => {
                   </div>
                 </div>
                 
-                {orderStatus?.status === "out-for-delivery" && (
+                {(orderStatus?.status === "out-for-delivery" || realtimeStatus?.status === "out-for-delivery") && (
                   <div className="mt-8 p-4 bg-gray-50 rounded-lg">
                     <h3 className="font-medium text-gray-900 mb-2">Delivery Partner Information</h3>
                     <div className="flex items-center">

@@ -10,14 +10,21 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useAuth } from "@/hooks/useApi";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login, isAuthenticated } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  
+  // If already authenticated, redirect to home
+  if (isAuthenticated) {
+    navigate('/');
+    return null;
+  }
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,20 +34,14 @@ const Login = () => {
       return;
     }
     
-    setIsLoggingIn(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoggingIn(false);
-      
-      // Dummy validation for demo
-      if (email === "user@example.com" && password === "password") {
-        toast.success("Login successful!");
-        navigate("/");
-      } else {
-        toast.error("Invalid credentials. Try user@example.com / password");
+    login.mutate(
+      { email, password },
+      {
+        onSuccess: () => {
+          navigate("/");
+        }
       }
-    }, 1500);
+    );
   };
   
   return (
@@ -114,10 +115,10 @@ const Login = () => {
               
               <Button 
                 type="submit"
-                disabled={isLoggingIn}
+                disabled={login.isPending}
                 className="w-full bg-mcbongu-500 hover:bg-mcbongu-600 text-white rounded-xl py-2"
               >
-                {isLoggingIn ? (
+                {login.isPending ? (
                   <span className="flex items-center justify-center">
                     <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

@@ -3,6 +3,8 @@ import { useQuery, useMutation, UseMutationOptions, UseQueryOptions } from "@tan
 import { apiClient } from "@/services/apiClient";
 import { MenuCategory, MenuItem } from "@/data/americanDishes";
 import { toast } from "sonner";
+import { useEffect, useState } from 'react';
+import { supabase } from "@/integrations/supabase/client";
 
 // Hook for restaurant menu data
 export const useRestaurantMenu = (restaurantId: string) => {
@@ -67,15 +69,57 @@ export const useAuth = () => {
     },
   });
 
+  // Get current user info using Supabase
+  const [user, setUser] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    const initAuth = async () => {
+      try {
+        // Get the current session
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (session?.user) {
+          setUser(session.user);
+        }
+      } catch (error) {
+        console.error('Error getting auth session:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    initAuth();
+    
+    // Subscribe to auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user || null);
+      }
+    );
+    
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
   return {
     login: loginMutation,
     register: registerMutation,
+    user,
+    isLoading,
+    logout: async () => {
+      await supabase.auth.signOut();
+      toast.success("You have been logged out");
+    },
+    isAuthenticated: !!user,
   };
 };
 
 // Hook for tracking order status
 export const useOrderStatus = (orderId: string | null) => {
-  return useQuery({
+  // Basic status query
+  const statusQuery = useQuery({
     queryKey: ["order", orderId, "status"],
     queryFn: () => {
       if (!orderId) throw new Error("Order ID is required");
@@ -84,4 +128,87 @@ export const useOrderStatus = (orderId: string | null) => {
     enabled: !!orderId,
     refetchInterval: 10000, // Poll every 10 seconds for updates
   });
+
+  // Real-time status using WebSockets
+  const [realtimeStatus, setRealtimeStatus] = useState<any>(null);
+  const [socketConnected, setSocketConnected] = useState(false);
+
+  useEffect(() => {
+    if (!orderId) return;
+    
+    let socket: WebSocket | null = null;
+    
+    const connectWebSocket = async () => {
+      try {
+        // Get the current session for auth
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session) {
+          console.log("No auth session for WebSocket");
+          return;
+        }
+
+        // Create WebSocket connection
+        socket = apiClient.createOrderTrackingSocket(orderId, session.access_token);
+
+        socket.onopen = () => {
+          setSocketConnected(true);
+          console.log("WebSocket connected");
+          
+          // Send initial tracking request
+          socket.send(JSON.stringify({
+            action: "track",
+            orderId,
+            token: session.access_token
+          }));
+        };
+
+        socket.onmessage = (event) => {
+          try {
+            const data = JSON.parse(event.data);
+            if (data.type === "status_update" || data.type === "initial_status") {
+              setRealtimeStatus(data);
+            } else if (data.error) {
+              console.error("WebSocket error:", data.error, data.message);
+            }
+          } catch (e) {
+            console.error("Error parsing WebSocket message:", e);
+          }
+        };
+
+        socket.onclose = () => {
+          setSocketConnected(false);
+          console.log("WebSocket disconnected");
+        };
+
+        socket.onerror = (error) => {
+          console.error("WebSocket error:", error);
+          setSocketConnected(false);
+        };
+
+      } catch (error) {
+        console.error("Error setting up WebSocket:", error);
+      }
+    };
+
+    connectWebSocket();
+
+    // Cleanup
+    return () => {
+      if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.close();
+      }
+    };
+  }, [orderId]);
+
+  // Combine REST and WebSocket data
+  const status = realtimeStatus?.status || statusQuery.data?.status;
+  const currentLocation = realtimeStatus?.location || statusQuery.data?.currentLocation;
+
+  return {
+    ...statusQuery,
+    status,
+    currentLocation,
+    realtimeStatus,
+    isRealtime: socketConnected && !!realtimeStatus,
+  };
 };
