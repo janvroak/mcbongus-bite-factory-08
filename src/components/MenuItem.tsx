@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { PlusCircle, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -47,6 +46,7 @@ const fallbackImages = {
   spaghetti: "https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   lasagna: "https://images.unsplash.com/photo-1619895092538-128341789da9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   // Japanese food
+  japanese: "https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   sushi: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   ramen: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   tempura: "https://images.unsplash.com/photo-1628294895950-9805252327bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
