@@ -67,16 +67,18 @@ serve(async (req) => {
       );
     }
 
-    // Configure auth settings using admin API
-    // Note: This is a simplified example as Supabase Edge Functions can't directly
-    // change auth settings. In a real-world scenario, you'd need to use the 
-    // management API or Supabase dashboard.
-
+    // Since we can't directly change auth settings via Edge Functions,
+    // we're returning instructions for the admin
     return new Response(
       JSON.stringify({ 
-        message: 'Auth settings configured. Please disable email confirmation in the Supabase Dashboard.',
+        message: 'Important: Please disable email confirmation in the Supabase Dashboard Auth settings',
+        instructions: [
+          "1. Go to the Supabase Dashboard",
+          "2. Navigate to Authentication > Email Templates",
+          "3. Disable the 'Confirm signup' template or set 'Confirm email' to OFF in Auth settings"
+        ],
         authSettings: {
-          emailConfirmationDisabled: true
+          emailConfirmationRequired: false
         }
       }),
       { headers: { 'Content-Type': 'application/json', ...corsHeaders } }

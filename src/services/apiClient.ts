@@ -26,17 +26,26 @@ class ApiClient {
       options: {
         data: {
           full_name: name,
-        }
+        },
+        emailRedirectTo: `${window.location.origin}/login`,
       }
     });
 
     if (error) throw new Error(error.message);
 
-    // Create profile record - we'll handle this with a database trigger instead
-    // This avoids the type error with the profiles table
-
+    // If we have a session, this means email confirmation is disabled
+    // and the user is already logged in
+    if (data.session) {
+      return {
+        token: data.session.access_token || '',
+        userId: data.user?.id || '',
+      };
+    }
+    
+    // If no session but user exists, this means email confirmation is required
+    // We'll return what we can, but this should not happen if email confirmation is disabled
     return {
-      token: data.session?.access_token || '',
+      token: '',
       userId: data.user?.id || '',
     };
   }

@@ -1,4 +1,3 @@
-
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiClient } from "@/services/apiClient";
 import { toast } from "sonner";
@@ -52,7 +51,6 @@ export const useAuth = () => {
       toast.success("Login successful!");
     },
     onError: (error: Error) => {
-      // We'll provide a general error message without mentioning email confirmation
       toast.error("Login failed", { description: error.message });
     },
   });
