@@ -1,5 +1,21 @@
+export interface MenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+  veg: boolean;
+  spicy: boolean;
+  popular: boolean;
+}
 
-export const createAmericanMenuCategories = (restaurantId: string) => {
+export interface MenuCategory {
+  id: string;
+  name: string;
+  items: MenuItem[];
+}
+
+export const createAmericanMenuCategories = (restaurantId: string): MenuCategory[] => {
   return [
     {
       id: "burgers",
@@ -148,6 +164,56 @@ export const createAmericanMenuCategories = (restaurantId: string) => {
           popular: false
         }
       ]
+    },
+    {
+      id: "desserts",
+      name: "Desserts",
+      items: [
+        {
+          id: `${restaurantId}-dessert-1`,
+          name: "New York Cheesecake",
+          description: "Classic creamy cheesecake with graham cracker crust",
+          price: "₹249",
+          image: "https://images.unsplash.com/photo-1524351199678-941a58a3df50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: false,
+          popular: true
+        },
+        {
+          id: `${restaurantId}-dessert-2`,
+          name: "Chocolate Brownie Sundae",
+          description: "Warm chocolate brownie topped with ice cream and chocolate sauce",
+          price: "₹219",
+          image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          veg: true,
+          spicy: false,
+          popular: true
+        }
+      ]
     }
   ];
+};
+
+export const getAmericanMenuCategories = (restaurantId: string): Promise<MenuCategory[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(createAmericanMenuCategories(restaurantId));
+    }, 300);
+  });
+};
+
+export const getMenuItemById = (restaurantId: string, itemId: string): Promise<MenuItem | null> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const allCategories = createAmericanMenuCategories(restaurantId);
+      for (const category of allCategories) {
+        const item = category.items.find(item => item.id === itemId);
+        if (item) {
+          resolve(item);
+          return;
+        }
+      }
+      resolve(null);
+    }, 300);
+  });
 };
