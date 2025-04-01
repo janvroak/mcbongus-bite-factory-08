@@ -20,6 +20,7 @@ import About from "./pages/About";
 import Offers from "./pages/Offers";
 import Career from "./pages/Career";
 import Help from "./pages/Help";
+import Profile from "./pages/Profile";
 import { useAuth } from "./hooks/useApi";
 
 const queryClient = new QueryClient();
@@ -56,6 +57,7 @@ const AppRoutes = () => {
         <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
         <Route path="/order-confirmation/:id" element={<ProtectedRoute><OrderConfirmation /></ProtectedRoute>} />
         <Route path="/order-tracking/:id" element={<ProtectedRoute><OrderTracking /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />

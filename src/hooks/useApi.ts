@@ -1,3 +1,4 @@
+
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiClient } from "@/services/apiClient";
 import { toast } from "sonner";
@@ -101,15 +102,21 @@ export const useAuth = () => {
     };
   }, []);
 
+  const logoutFn = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      throw new Error(error.message);
+    }
+    toast.success("You have been logged out");
+    return true;
+  };
+
   return {
     login: loginMutation,
     register: registerMutation,
     user,
     isLoading,
-    logout: async () => {
-      await supabase.auth.signOut();
-      toast.success("You have been logged out");
-    },
+    logout: logoutFn,
     isAuthenticated: !!user,
   };
 };
