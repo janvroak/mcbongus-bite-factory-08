@@ -39,8 +39,9 @@
   background-color: hsl(var(--card));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
+  color: #f8f8f8;
 }
 
 .read-the-docs {
-  color: hsl(var(--muted-foreground));
+  color: #f8f8f8;
 }

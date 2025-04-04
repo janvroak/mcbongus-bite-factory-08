@@ -19,9 +19,9 @@ const SearchResultItem = ({ restaurant, matchedItem }: SearchResultItemProps) =>
       {matchedItem && (
         <div className="px-4 pb-4 pt-1">
           <div className="mt-1 pl-4 border-l-2 border-accent">
-            <p className="font-medium text-foreground">Matched dish: {matchedItem.name}</p>
+            <p className="font-medium text-[#f8f8f8]">Matched dish: {matchedItem.name}</p>
             {matchedItem.description && (
-              <p className="text-sm text-foreground/70 mt-1">{matchedItem.description}</p>
+              <p className="text-sm text-[#f8f8f8]/70 mt-1">{matchedItem.description}</p>
             )}
           </div>
           
