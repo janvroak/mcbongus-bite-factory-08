@@ -7,43 +7,43 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 13% 10%;
+    --background: 225 6% 13%;
+    --foreground: 210 20% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 10%;
+    --card: 224 6% 17%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 10%;
+    --popover: 224 6% 17%;
+    --popover-foreground: 210 20% 98%;
 
     --primary: 342 77% 49%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 30% 98%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 224 6% 22%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 210 20% 98%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 224 6% 22%;
+    --muted-foreground: 215.4 16.3% 70%;
 
-    --accent: 342 77% 97%;
-    --accent-foreground: 342 77% 49%;
+    --accent: 342 77% 20%;
+    --accent-foreground: 342 77% 90%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 224 6% 25%;
+    --input: 224 6% 25%;
     --ring: 342 77% 49%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --sidebar-background: 225 8% 10%;
+    --sidebar-foreground: 240 5.3% 70%;
+    --sidebar-primary: 240 5.9% 90%;
+    --sidebar-primary-foreground: 225 8% 10%;
+    --sidebar-accent: 224 5% 15%;
+    --sidebar-accent-foreground: 240 5.9% 90%;
+    --sidebar-border: 225 7% 20%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -67,7 +67,7 @@
 @layer components {
   .hero-section {
     @apply relative overflow-hidden h-[80vh] max-h-[700px] min-h-[500px] w-full flex items-center;
-    background-image: url('/hero-bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('/hero-bg.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -78,7 +78,7 @@
   }
 
   .glass-card {
-    @apply bg-white/70 backdrop-blur-md shadow-lg rounded-xl border border-white/20;
+    @apply bg-card/80 backdrop-blur-md shadow-lg rounded-xl border border-border/30;
   }
 
   .section-container {
@@ -86,7 +86,7 @@
   }
 
   .navbar-item {
-    @apply text-sm font-medium text-gray-700 hover:text-mcbongu-500 transition-colors duration-200;
+    @apply text-sm font-medium text-foreground/80 hover:text-mcbongu-400 transition-colors duration-200;
   }
 
   .btn-primary {
@@ -94,15 +94,15 @@
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-mcbongu-500 font-medium rounded-full border border-mcbongu-200 hover:bg-mcbongu-50 transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5;
+    @apply px-6 py-3 bg-secondary text-foreground font-medium rounded-full border border-border hover:bg-secondary/80 transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5;
   }
 
   .restaurant-card {
-    @apply relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1;
+    @apply relative bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-border/50;
   }
 
   .menu-item {
-    @apply flex justify-between items-start p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200;
+    @apply flex justify-between items-start p-4 border-b border-border hover:bg-secondary/50 transition-colors duration-200;
   }
 
   .hover-link {
